@@ -1,0 +1,10 @@
+---
+interface Props {
+    background?: string;
+}
+const { background = "" } = Astro.props;
+---
+
+<div class:list={["sm:w-2/3 m-auto px-3 max-w-lg bg-red-500", background]}>
+    <slot />
+</div>
