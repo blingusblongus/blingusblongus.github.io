@@ -2,7 +2,7 @@
 title: Code
 ---
 
-Take a look at some of my work! While my focus recently has been on work I'm not allowed to share, here are a few places to see some of my code and thought process.
+Take a look at some of my work! While my focus recently has been on professional work I can't share, here are a few places to see some of my code and thought process.
 
 ## Advent of Code
 
