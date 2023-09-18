@@ -1,0 +1,20 @@
+---
+import TextPage from "../layouts/TextPage.astro";
+import * as page from "../content/about.md";
+import { slide } from "astro:transitions";
+import "../assets/styles/about.module.css";
+const { Content, frontmatter } = page;
+---
+
+<TextPage title="About me">
+    <h1 class="text-2xl prose-headings:prose-lg">
+        <span transition:name="about-title">About Me</span>
+    </h1>
+
+    <div
+        class="w-full h-full prose-lg"
+        transition:animate={slide({ duration: 800 })}
+    >
+        <Content />
+    </div>
+</TextPage>

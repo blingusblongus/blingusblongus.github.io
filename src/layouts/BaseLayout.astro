@@ -1,0 +1,25 @@
+---
+import Layout from "./Layout.astro";
+
+const { title = "Blingusblongus" } = Astro.props.frontmatter || Astro.props;
+
+console.log(Astro.props);
+---
+
+<Layout title={title}>
+    <div class:list={["sm:w-5/6 m-auto px-3 max-w-xl my-3"]}>
+        <h1 class="text-red-500">
+            <span transition:name="test-title">{title}</span>
+        </h1>
+        <slot />
+    </div>
+</Layout>
+
+<style>
+    h1 {
+        color: blue;
+    }
+    p {
+        color: green;
+    }
+</style>

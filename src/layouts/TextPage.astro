@@ -1,0 +1,11 @@
+---
+import Layout from "./Layout.astro";
+
+const { title = "Blingusblongus" } = Astro.props;
+---
+
+<Layout title={title} transition:name="test-title">
+    <div class:list={["sm:w-5/6 m-auto px-3 max-w-xl my-3"]}>
+        <slot />
+    </div>
+</Layout>
