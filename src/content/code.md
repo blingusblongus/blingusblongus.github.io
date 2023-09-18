@@ -29,6 +29,15 @@ While it's no longer hosted on heroku (RIP free tier), [the source code is avail
 
 </div>
 
+## Now Experience Component Articles
+
+One of my interesting projects early on was to research a new framework for the company I was working for at the time, evaluate opportunities for using it in future projects, and share my findings with the team and the community. The framework was designed to integrate with a specific SaaS product, and was very early in adoption. Though the code demos I wrote were handed over when I got my next job, a couple of the articles I wrote are still available:
+
+-   [Now Experience Custom Components, Part One](https://creator-dna.com/blog/custom-components-in-the-now-experience-ui-framework-part-1-creating-a-stateful-web-component)
+-   [Now Experience Custom Components, Part Two](https://creator-dna.com/blog/custom-components-in-the-now-experience-ui-framework-part-2-actions-and-action-handlers)
+
+![Custom Component Article Thumbnail](https://images.squarespace-cdn.com/content/v1/5f35c4fce727994a06c391f5/1654724216198-T9V21GDIN7GUBZJZI6Q5/Action_Handlers_1.png)
+
 ## SC Language Map
 
 A group project from Prime Academy, the SC Language Map was an MVP built with React and Node.js. It used the Mapbox API to interactively map and display information about endangered languages in South Carolina, and the locations where they're spoken.
