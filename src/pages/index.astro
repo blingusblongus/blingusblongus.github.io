@@ -3,6 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import EnterOnScroll from "../components/EnterOnScroll";
 import Content from "../components/Content.astro";
 import Card from "../components/Card.astro";
+import TransitionCard from "../components/TransitionCard.astro";
 import { Image } from "astro:assets";
 import squid from "../assets/images/jonathan-diemel-3CxVpFO739c-unsplash.jpg";
 import pinkNick from "../assets/images/Nick_Pink_895aa1f259.jpeg";
@@ -14,7 +15,7 @@ import pinkNick from "../assets/images/Nick_Pink_895aa1f259.jpeg";
             <Image
                 src={squid}
                 alt="Squid Image"
-                class="object-cover opacity-50 max-h-[15rem] w-full h-full"
+                class="object-cover opacity-50 max-h-[20rem] w-full h-full"
             />
             <div
                 class="absolute top-0 left-0 flex justify-around items-center w-full h-full"
@@ -35,203 +36,45 @@ import pinkNick from "../assets/images/Nick_Pink_895aa1f259.jpeg";
                 </div>
             </div>
         </section>
-        <section class="dark:bg-[#F9CAC8]-900">
-            <div
-                class="grid max-w-screen-xl px-4 py-0 mx-auto lg:gap-8 xl:gap-0 lg:py- lg:grid-cols-12"
-            >
-                <div class="mr-auto place-self-center lg:col-span-10">
-                    <h1
-                        class="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white"
-                    >
-                        Hello There
-                    </h1>
-                    <p
-                        class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400"
-                    >
-                        Test Test Test
-                    </p>
-                    <a
-                        href="#"
-                        class="inline-flex items-center justify-center px-5 py-3 mr-3 text-base font-medium text-center text-white rounded-lg bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 dark:focus:ring-primary-900"
-                    >
-                        Get started
-                        <svg
-                            class="w-5 h-5 ml-2 -mr-1"
-                            fill="currentColor"
-                            viewBox="0 0 20 20"
-                            xmlns="http://www.w3.org/2000/svg"
-                            ><path
-                                fill-rule="evenodd"
-                                d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                                clip-rule="evenodd"></path></svg
-                        >
-                    </a>
-                    <a
-                        href="#"
-                        class="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-gray-900 border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800"
-                    >
-                        Speak to Sales
-                    </a>
-                </div>
-                <!-- <div -->
-                <!--     class="hidden lg:mt-0 lg:col-span-2 lg:flex shadow-[#F9CAC8_100px_10px_50px_200px] clip" -->
-                <!-- > -->
-                <!--     <Image src={pinkNick} alt="Me, Nick Allen" /> -->
-                <!-- </div> -->
-            </div>
-        </section>
+        <!-- <div -->
+        <!--     class="w-full h-[1rem] -mt-[1rem] bg-gradient-to-t from-[#13151a] to-transparent backdrop-blur-lg" -->
+        <!-- > -->
+        <!-- </div> -->
+
         <Content>
-            <div class="grid gap-3 w-full h-full grid-cols-2">
-                <div>
-                    <a href="/about"
-                        ><span transition:name="about-title">About Me</span></a
-                    >
-                </div>
-                <div>
-                    <a href="/test">
-                        <span transition:name="test-title">Test</span>
-                    </a>
-                </div>
-                <div>
-                    <a href="/code">
-                        <span transition:name="code-title">Code</span>
-                    </a>
-                </div>
-                <div>
-                    <a href="/experience">
-                        <span transition:name="experience-title"
-                            >Experience</span
-                        >
-                    </a>
-                </div>
+            <div
+                class="grid gap-3 -mt-5 w-full h-full grid-cols-1 sm:grid-cols-2"
+            >
+                <TransitionCard
+                    href="/about"
+                    title="About Me"
+                    body="¯\\_(ツ)_/¯"
+                    transitionName="about-title"
+                />
+                <TransitionCard
+                    href="/test"
+                    title="test"
+                    body="Just a test button"
+                    transitionName="test-title"
+                />
+                <TransitionCard
+                    href="/code"
+                    title="Code"
+                    body="Check out what I've worked on!"
+                    transitionName="code-title"
+                />
+                <TransitionCard
+                    href="/experience"
+                    title="Experience"
+                    body="My previous work experience."
+                    transitionName="experience-title"
+                />
             </div>
         </Content>
-        <div class="w-full h-[100vh]"></div>
 
-        <EnterOnScroll
-            client:visible
-            text="Here's a bit about me. I love vim <3"
-        />
-
-        <div class="grid grid-cols-2">
-            <Card
-                href="/"
-                title="Hello"
-                body="Here's some text in the body\nhello"
-            />
-            <Card
-                href="/"
-                title="Hello"
-                body="Here's some text in the body\nhello"
-            />
-            <Card
-                href="/"
-                title="Hello"
-                body="Here's some text in the body\nhello"
-            />
-            <Card
-                href="/"
-                title="Hello"
-                body="Here's some text in the body\nhello"
-            />
-            <Card
-                href="/"
-                title="Hello"
-                body="Here's some text in the body\nhello"
-            />
-        </div>
-
-        <!-- <p class="instructions"> -->
-        <!--     To get started, open the directory <code>src/pages</code> in your -->
-        <!--     project.<br /> -->
-        <!--     <strong>Code Challenge:</strong> Tweak the "Welcome to Astro" -->
-        <!--     message above. -->
-        <!-- </p> -->
-        <!-- <ul role="list" class="link-card-grid"> -->
-        <!--     <Card -->
-        <!--         href="https://docs.astro.build/" -->
-        <!--         title="Documentation" -->
-        <!--         body="Learn how Astro works and explore the official API docs." -->
-        <!--     /> -->
-        <!--     <Card -->
-        <!--         href="https://astro.build/integrations/" -->
-        <!--         title="Integrations" -->
-        <!--         body="Supercharge your project with new frameworks and libraries." -->
-        <!--     /> -->
-        <!--     <Card -->
-        <!--         href="https://astro.build/themes/" -->
-        <!--         title="Themes" -->
-        <!--         body="Explore a galaxy of community-built starter themes." -->
-        <!--     /> -->
-        <!--     <Card -->
-        <!--         href="https://astro.build/chat/" -->
-        <!--         title="Community" -->
-        <!--         body="Come say hi to our amazing Discord community. ❤️" -->
-        <!--     /> -->
-        <!-- </ul> -->
+        <!-- <EnterOnScroll -->
+        <!--     client:visible -->
+        <!--     text="Here's a bit about me. I love vim <3" -->
+        <!-- /> -->
     </main>
-
-    <!-- <style> -->
-    <!-- 	main { -->
-    <!-- 		margin: auto; -->
-    <!-- 		padding: 1rem; -->
-    <!-- 		width: 800px; -->
-    <!-- 		max-width: calc(100% - 2rem); -->
-    <!-- 		color: white; -->
-    <!-- 		font-size: 20px; -->
-    <!-- 		line-height: 1.6; -->
-    <!-- 	} -->
-    <!-- 	.astro-a { -->
-    <!-- 		position: absolute; -->
-    <!-- 		top: -32px; -->
-    <!-- 		left: 50%; -->
-    <!-- 		transform: translatex(-50%); -->
-    <!-- 		width: 220px; -->
-    <!-- 		height: auto; -->
-    <!-- 		z-index: -1; -->
-    <!-- 	} -->
-    <!-- 	h1 { -->
-    <!-- 		font-size: 4rem; -->
-    <!-- 		font-weight: 700; -->
-    <!-- 		line-height: 1; -->
-    <!-- 		text-align: center; -->
-    <!-- 		margin-bottom: 1em; -->
-    <!-- 	} -->
-    <!-- 	.text-gradient { -->
-    <!-- 		background-image: var(--accent-gradient); -->
-    <!-- 		-webkit-background-clip: text; -->
-    <!-- 		-webkit-text-fill-color: transparent; -->
-    <!-- 		background-size: 400%; -->
-    <!-- 		background-position: 0%; -->
-    <!-- 	} -->
-    <!-- 	.instructions { -->
-    <!-- 		margin-bottom: 2rem; -->
-    <!-- 		border: 1px solid rgba(var(--accent-light), 25%); -->
-    <!-- 		background: linear-gradient(rgba(var(--accent-dark), 66%), rgba(var(--accent-dark), 33%)); -->
-    <!-- 		padding: 1.5rem; -->
-    <!-- 		border-radius: 8px; -->
-    <!-- 	} -->
-    <!-- 	.instructions code { -->
-    <!-- 		font-size: 0.8em; -->
-    <!-- 		font-weight: bold; -->
-    <!-- 		background: rgba(var(--accent-light), 12%); -->
-    <!-- 		color: rgb(var(--accent-light)); -->
-    <!-- 		border-radius: 4px; -->
-    <!-- 		padding: 0.3em 0.4em; -->
-    <!-- 	} -->
-    <!-- 	.instructions strong { -->
-    <!-- 		color: rgb(var(--accent-light)); -->
-    <!-- 	} -->
-    <!-- 	.link-card-grid { -->
-    <!-- 		display: grid; -->
-    <!-- 		grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr)); -->
-    <!-- 		gap: 2rem; -->
-    <!-- 		padding: 0; -->
-    <!-- 	} -->
-    <!-- </style> -->
-    <!-- <style> -->
-    <!--     .clip { -->
-    <!--         clip-path: inset(0px 0px 0px -200px); -->
-    <!--     } -->
-    <!-- </style> -->
 </Layout>

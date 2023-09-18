@@ -8,7 +8,9 @@ const { Content, frontmatter } = page;
 
 <TextPage title={frontmatter.title}>
     <h1>
-        <span transition:name="about-title">{frontmatter.title}</span>
+        <span transition:name="about-title" class="text-center"
+            >{frontmatter.title}</span
+        >
     </h1>
 
     <div class="w-full h-full" transition:animate={slide({ duration: 800 })}>
