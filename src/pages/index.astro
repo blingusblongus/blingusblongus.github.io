@@ -3,10 +3,38 @@ import Layout from "../layouts/Layout.astro";
 import EnterOnScroll from "../components/EnterOnScroll";
 import Content from "../components/Content.astro";
 import Card from "../components/Card.astro";
+import { Image } from "astro:assets";
+import squid from "../assets/images/jonathan-diemel-3CxVpFO739c-unsplash.jpg";
+import pinkNick from "../assets/images/Nick_Pink_895aa1f259.jpeg";
 ---
 
 <Layout title="Home">
     <main>
+        <section class="w-screen relative">
+            <Image
+                src={squid}
+                alt="Squid Image"
+                class="object-cover opacity-50 max-h-[15rem] w-full h-full"
+            />
+            <div
+                class="absolute top-0 left-0 flex justify-around items-center w-full h-full"
+            >
+                <div class="text-4xl font-bold">
+                    <div class="pl-[3rem]">Nick</div>
+                    <div class="pl-[4rem]">Allen</div>
+                    <div class="text-2xl font-light text-gray-300 pt-5">
+                        Software Developer
+                    </div>
+                </div>
+                <div class="sm:block hidden">
+                    <Image
+                        src={pinkNick}
+                        alt="My picture"
+                        class="h-[12rem] w-[12rem] rounded-full object-cover"
+                    />
+                </div>
+            </div>
+        </section>
         <section class="dark:bg-[#F9CAC8]-900">
             <div
                 class="grid max-w-screen-xl px-4 py-0 mx-auto lg:gap-8 xl:gap-0 lg:py- lg:grid-cols-12"
