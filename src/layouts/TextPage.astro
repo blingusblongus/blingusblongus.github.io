@@ -5,7 +5,11 @@ const { title = "Blingusblongus" } = Astro.props;
 ---
 
 <Layout title={title} transition:name="test-title">
-    <div class:list={["sm:w-5/6 m-auto px-3 max-w-xl my-3"]}>
-        <slot />
+    <div class:list={["sm:w-5/6 m-auto px-3 max-w-2xl mt-[3rem]"]}>
+        <article
+            class="prose prose-invert lg:prose-lg prose-headings:mt-[4rem]"
+        >
+            <slot />
+        </article>
     </div>
 </Layout>

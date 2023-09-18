@@ -1,6 +1,6 @@
 ---
 import TextPage from "../layouts/TextPage.astro";
-import * as page from "../content/about.md";
+import * as page from "../content/code.md";
 import { slide } from "astro:transitions";
 import "../assets/styles/about.module.css";
 const { Content, frontmatter } = page;
@@ -8,7 +8,7 @@ const { Content, frontmatter } = page;
 
 <TextPage title={frontmatter.title}>
     <h1>
-        <span transition:name="about-title">{frontmatter.title}</span>
+        <span transition:name="code-title">{frontmatter.title}</span>
     </h1>
 
     <div class="w-full h-full" transition:animate={slide({ duration: 800 })}>

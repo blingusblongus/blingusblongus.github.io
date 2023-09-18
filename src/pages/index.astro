@@ -2,28 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import EnterOnScroll from "../components/EnterOnScroll";
 import Content from "../components/Content.astro";
-import { Image } from "astro:assets";
-import pinkNick from "../assets/images/Nick_Pink_895aa1f259.jpeg";
 import Card from "../components/Card.astro";
-const anim = {
-    old: {
-        name: "fadeIn",
-        duration: "3.2s",
-        easing: "linear",
-        fillMode: "forwards",
-    },
-    new: {
-        name: "fadeOut",
-        duration: "3.3s",
-        easing: "linear",
-        fillMode: "backwards",
-    },
-};
-
-const myFade = {
-    forwards: anim,
-    backwards: anim,
-};
 ---
 
 <Layout title="Home">
@@ -86,7 +65,11 @@ const myFade = {
                     </a>
                 </div>
 
-                <div>hello</div>
+                <div>
+                    <a href="/code">
+                        <span transition:name="code-title">Code</span>
+                    </a>
+                </div>
                 <div>hello</div>
             </div>
         </Content>
