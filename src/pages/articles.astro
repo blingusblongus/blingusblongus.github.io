@@ -1,0 +1,27 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { slide } from "astro:transitions";
+import "../assets/styles/about.module.css";
+import Content from "../components/Content.astro";
+---
+
+<Layout title="Articles">
+    <Content>
+        <article
+            class="prose prose-invert lg:prose-lg prose-headings:mt-[3rem]"
+        >
+            <h1>
+                <span transition:name="articles-title" class="text-center"
+                    >Articles</span
+                >
+            </h1>
+
+            <div
+                class="w-full h-full"
+                transition:animate={slide({ duration: 800 })}
+            >
+                {"Coming soon <3"}
+            </div>
+        </article>
+    </Content>
+</Layout>
