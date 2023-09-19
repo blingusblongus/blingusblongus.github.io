@@ -7,6 +7,7 @@ import squid from "../assets/images/jonathan-diemel-3CxVpFO739c-unsplash.jpg";
 import pinkNick from "../assets/images/Nick_Pink_895aa1f259.jpeg";
 import Name from "../components/animatedSvgs/Name.astro";
 import EnterOnScroll from "../components/EnterOnScroll";
+import ContactMe from "../components/ContactMe.astro";
 ---
 
 <Layout title="Home">
@@ -16,8 +17,8 @@ import EnterOnScroll from "../components/EnterOnScroll";
                 src={squid}
                 alt="Squid Image"
                 class="object-cover opacity-50 max-h-[20rem] w-full h-full"
-                quality="mid"
                 loading="eager"
+                height={360}
             />
             <div
                 class="absolute top-0 left-0 flex justify-around items-center w-full h-full"
@@ -41,9 +42,7 @@ import EnterOnScroll from "../components/EnterOnScroll";
         </section>
 
         <Content>
-            <div
-                class="grid gap-3 -mt-5 w-full h-full grid-cols-1 sm:grid-cols-2"
-            >
+            <ul class="grid gap-3 w-full h-full grid-cols-1 sm:grid-cols-2">
                 <TransitionCard
                     href="/about"
                     title="About Me"
@@ -68,7 +67,9 @@ import EnterOnScroll from "../components/EnterOnScroll";
                     body="Read some stuff, or look at the pictures"
                     transitionName="articles-title"
                 />
-            </div>
+            </ul>
         </Content>
+
+        <ContactMe />
     </main>
 </Layout>
