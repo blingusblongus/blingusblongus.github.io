@@ -6,6 +6,7 @@ import { Image } from "astro:assets";
 import squid from "../assets/images/jonathan-diemel-3CxVpFO739c-unsplash.jpg";
 import pinkNick from "../assets/images/Nick_Pink_895aa1f259.jpeg";
 import Name from "../components/animatedSvgs/Name.astro";
+import EnterOnScroll from "../components/EnterOnScroll";
 ---
 
 <Layout title="Home">
@@ -69,5 +70,9 @@ import Name from "../components/animatedSvgs/Name.astro";
                 />
             </div>
         </Content>
+
+        <div class="w-full h-[100vw]"></div>
+
+        <EnterOnScroll text="Hello There" client:visible />
     </main>
 </Layout>
