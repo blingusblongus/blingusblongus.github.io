@@ -8,7 +8,7 @@ Take a look at some of my work! While my focus recently has been on professional
 
 While this isn't a _project_, per se, I like putting this up top because I come back to it often, and always learn something new when I add to it, or refactor old solutions. Recently, I've been moving my solutions from all years and languages to a single repository to reflect, refactor, and explore new languages.
 
-[Check out my typescript, python, and rust solutions here](https://github.com/blingusblongus/aoc-collected).
+[Check out my typescript, python, and rust solutions here (WIP)](https://github.com/blingusblongus/aoc-collected).
 
 ![Advent of Code Picture](https://community.alteryx.com/t5/image/serverpage/image-id/269381iE1288FAEB30E4EDA?v=v2)
 
