@@ -1,12 +1,11 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import EnterOnScroll from "../components/EnterOnScroll";
 import Content from "../components/Content.astro";
-import Card from "../components/Card.astro";
 import TransitionCard from "../components/TransitionCard.astro";
 import { Image } from "astro:assets";
 import squid from "../assets/images/jonathan-diemel-3CxVpFO739c-unsplash.jpg";
 import pinkNick from "../assets/images/Nick_Pink_895aa1f259.jpeg";
+import Name from "../components/animatedSvgs/Name.astro";
 ---
 
 <Layout title="Home">
@@ -16,13 +15,16 @@ import pinkNick from "../assets/images/Nick_Pink_895aa1f259.jpeg";
                 src={squid}
                 alt="Squid Image"
                 class="object-cover opacity-50 max-h-[20rem] w-full h-full"
+                quality="mid"
+                loading="eager"
             />
             <div
                 class="absolute top-0 left-0 flex justify-around items-center w-full h-full"
             >
                 <div class="text-4xl font-bold">
-                    <div class="pl-[3rem]">Nick</div>
-                    <div class="pl-[4rem]">Allen</div>
+                    <Name />
+                    <!-- <div class="pl-[3rem]">Nick</div> -->
+                    <!-- <div class="pl-[4rem]">Allen</div> -->
                     <div class="text-2xl font-light text-gray-300 pt-5">
                         Software Developer
                     </div>
@@ -36,10 +38,6 @@ import pinkNick from "../assets/images/Nick_Pink_895aa1f259.jpeg";
                 </div>
             </div>
         </section>
-        <!-- <div -->
-        <!--     class="w-full h-[1rem] -mt-[1rem] bg-gradient-to-t from-[#13151a] to-transparent backdrop-blur-lg" -->
-        <!-- > -->
-        <!-- </div> -->
 
         <Content>
             <div
@@ -71,10 +69,5 @@ import pinkNick from "../assets/images/Nick_Pink_895aa1f259.jpeg";
                 />
             </div>
         </Content>
-
-        <!-- <EnterOnScroll -->
-        <!--     client:visible -->
-        <!--     text="Here's a bit about me. I love vim <3" -->
-        <!-- /> -->
     </main>
 </Layout>
