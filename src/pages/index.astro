@@ -41,7 +41,7 @@ const badges = await Astro.glob("../components/icons/badges/*.astro");
         </section>
 
         <section
-            class="bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-gray-800 to-gray-950"
+            class="bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-gray-800 to-gray-950 py-5"
         >
             <Content>
                 <ul class="grid h-full w-full grid-cols-1 gap-3 sm:grid-cols-2">
@@ -80,11 +80,11 @@ const badges = await Astro.glob("../components/icons/badges/*.astro");
                 <h1 class="text-4xl font-bold">Skills</h1>
             </div>
             <div
-                class="mx-auto flex w-full max-w-lg flex-wrap justify-center gap-3"
+                class="mx-auto flex w-full max-w-2xl flex-wrap justify-center gap-5"
             >
                 {
                     badges.map((badge) => (
-                        <div class="w-full max-w-[3rem]">
+                        <div class="w-full max-w-[4rem]">
                             <badge.default />
                         </div>
                     ))
