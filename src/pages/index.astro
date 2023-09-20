@@ -6,7 +6,6 @@ import { Image } from "astro:assets";
 import squid from "../assets/images/jonathan-diemel-3CxVpFO739c-unsplash.jpg";
 import pinkNick from "../assets/images/Nick_Pink_895aa1f259.jpeg";
 import Name from "../components/animatedSvgs/Name.astro";
-import EnterOnScroll from "../components/EnterOnScroll";
 import ContactMe from "../components/ContactMe.astro";
 ---
 
@@ -25,8 +24,6 @@ import ContactMe from "../components/ContactMe.astro";
             >
                 <div class="text-4xl font-bold">
                     <Name />
-                    <!-- <div class="pl-[3rem]">Nick</div> -->
-                    <!-- <div class="pl-[4rem]">Allen</div> -->
                     <div class="text-2xl font-light text-gray-300 pt-5">
                         Software Developer
                     </div>
@@ -62,10 +59,10 @@ import ContactMe from "../components/ContactMe.astro";
                     transitionName="experience-title"
                 />
                 <TransitionCard
-                    href="/articles"
-                    title="Articles"
+                    href="/blog"
+                    title="Blog"
                     body="Read some stuff, or look at the pictures"
-                    transitionName="articles-title"
+                    transitionName="blog-title"
                 />
             </ul>
         </Content>

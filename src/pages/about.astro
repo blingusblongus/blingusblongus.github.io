@@ -6,14 +6,14 @@ import "../assets/styles/about.module.css";
 const { Content, frontmatter } = page;
 ---
 
-<TextPage title={frontmatter.title}>
+<TextPage title={frontmatter.title} path="/about">
     <h1>
         <span transition:name="about-title" class="text-center"
             >{frontmatter.title}</span
         >
     </h1>
 
-    <div class="w-full h-full" transition:animate={slide({ duration: 800 })}>
+    <div class="w-full h-full" transition:animate={slide({ duration: 500 })}>
         <Content />
     </div>
 </TextPage>
