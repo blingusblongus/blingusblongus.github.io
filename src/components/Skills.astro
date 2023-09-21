@@ -77,7 +77,7 @@ colorOverrides.set(Lua, "skyblue");
                 const override = colorOverrides.get(Badge);
 
                 return (
-                    <div class="w-full max-w-[4rem]">
+                    <div class="w-full max-w-[4rem] transition-transform hover:scale-110">
                         {override ? <Badge fill={override} /> : <Badge />}
                     </div>
                 );
