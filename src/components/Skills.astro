@@ -1,0 +1,87 @@
+---
+import AfterEffects from "./badges/AfterEffects.astro";
+import AndroidStudio from "./badges/AndroidStudio.astro";
+import Angularjs from "./badges/Angularjs.astro";
+import AstroIcon from "./badges/AstroIcon.astro";
+import Blender from "./badges/Blender.astro";
+import CSharp from "./badges/CSharp.astro";
+import Css from "./badges/Css.astro";
+import Dotnet from "./badges/Dotnet.astro";
+import Express from "./badges/Express.astro";
+import Figma from "./badges/Figma.astro";
+import Git from "./badges/Git.astro";
+import Github from "./badges/Github.astro";
+import Html from "./badges/Html.astro";
+import Javascript from "./badges/Javascript.astro";
+import Jest from "./badges/Jest.astro";
+import Lua from "./badges/Lua.astro";
+import Nextjs from "./badges/Nextjs.astro";
+import Nodejs from "./badges/Nodejs.astro";
+import PostgreSQL from "./badges/PostgreSQL.astro";
+import Python from "./badges/Python.astro";
+import React from "./badges/React.astro";
+import Redux from "./badges/Redux.astro";
+import Rust from "./badges/Rust.astro";
+import Sass from "./badges/Sass.astro";
+import Tailwind from "./badges/Tailwind.astro";
+import Terraform from "./badges/Terraform.astro";
+import Threejs from "./badges/Threejs.astro";
+import Typescript from "./badges/Typescript.astro";
+import Vim from "./badges/Vim.astro";
+
+const badges = [
+    Typescript,
+    Javascript,
+    React,
+    Redux,
+    Nextjs,
+    Html,
+    Css,
+    Tailwind,
+    Sass,
+    Git,
+    Github,
+    Nodejs,
+    Express,
+    PostgreSQL,
+    CSharp,
+    Dotnet,
+    Terraform,
+    AndroidStudio,
+    Angularjs,
+    AstroIcon,
+    Figma,
+    Jest,
+    Lua,
+    Python,
+    Rust,
+    Threejs,
+    Blender,
+    AfterEffects,
+    Vim,
+];
+
+const colorOverrides = new Map();
+colorOverrides.set(Lua, "skyblue");
+---
+
+<section
+    class="flex w-full flex-col justify-center gap-10 bg-pink-800 bg-gradient-to-bl from-black to-purple-950 py-10 align-middle"
+>
+    <div class="mx-auto">
+        <h1 class="text-4xl font-bold">Skills</h1>
+    </div>
+    <div class="mx-auto flex w-full max-w-2xl flex-wrap justify-center gap-5">
+        {
+            badges.map((Badge) => {
+                const override = colorOverrides.get(Badge);
+
+                return (
+                    <div class="w-full max-w-[4rem]">
+                        {override ? <Badge fill={override} /> : <Badge />}
+                    </div>
+                );
+            })
+        }
+    </div>
+</section>

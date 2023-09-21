@@ -7,8 +7,7 @@ import squid from "../assets/images/jonathan-diemel-3CxVpFO739c-unsplash.jpg";
 import pinkNick from "../assets/images/Nick_Pink_895aa1f259.jpeg";
 import Name from "../components/animatedSvgs/Name.astro";
 import ContactMe from "../components/ContactMe.astro";
-
-const badges = await Astro.glob("../components/icons/badges/*.astro");
+import Skills from "../components/Skills.astro";
 ---
 
 <Layout title="Home">
@@ -73,24 +72,7 @@ const badges = await Astro.glob("../components/icons/badges/*.astro");
             </Content>
         </section>
 
-        <section
-            class="flex w-full flex-col justify-center gap-10 bg-pink-800 bg-gradient-to-bl from-black to-purple-950 py-10 align-middle"
-        >
-            <div class="mx-auto">
-                <h1 class="text-4xl font-bold">Skills</h1>
-            </div>
-            <div
-                class="mx-auto flex w-full max-w-2xl flex-wrap justify-center gap-5"
-            >
-                {
-                    badges.map((badge) => (
-                        <div class="w-full max-w-[4rem]">
-                            <badge.default />
-                        </div>
-                    ))
-                }
-            </div>
-        </section>
+        <Skills />
 
         <ContactMe />
     </main>
