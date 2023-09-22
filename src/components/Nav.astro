@@ -12,6 +12,10 @@ const navItems = [
         label: "Experience",
     },
     {
+        path: "/skills/all",
+        label: "Skills",
+    },
+    {
         path: "/blog",
         label: "Blog",
     },
@@ -23,12 +27,13 @@ const navItems = [
 
 interface Props {
     path?: string;
+    title: string;
 }
-const { path } = Astro.props;
+const { path, title } = Astro.props;
 ---
 
-<nav class="h-12 w-full flex justify-between items-center bg-slate-800 px-3">
-    <div class="h-full w-auto flex">
+<nav class="flex h-12 w-full items-center justify-between bg-slate-800 px-3">
+    <div class="flex h-full w-auto">
         <a href="/" class="flex items-center">
             <Image
                 src={blingus}
@@ -41,18 +46,18 @@ const { path } = Astro.props;
             <div class="mx-3">Home</div>
         </a>
     </div>
-    <div class="hidden xs:flex gap-5 p-3">
+    <div class="hidden gap-5 p-3 xs:flex">
         {
             navItems.map((item) => {
-                let active = item.path === path;
+                let active = item.label === title;
 
-                if (!active || !path) {
+                if (!active) {
                     return (
                         <div class="flex flex-col">
                             <div>
                                 <a href={item.path}>{item.label}</a>
                             </div>
-                            <div class="w-full h-1" />
+                            <div class="h-1 w-full" />
                         </div>
                     );
                 }
@@ -62,7 +67,7 @@ const { path } = Astro.props;
                             <a href={item.path}>{item.label}</a>
                         </div>
                         <div
-                            class="w-full h-0.5 bg-sky-300 rounded-s"
+                            class="h-0.5 w-full rounded-s bg-sky-300"
                             transition:name="nav-active"
                         />
                     </div>
