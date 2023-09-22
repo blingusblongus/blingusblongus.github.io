@@ -1,21 +1,21 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import Content from "../components/Content.astro";
-import TransitionCard from "../components/TransitionCard.astro";
+import Layout from "../../layouts/Layout.astro";
+import Content from "../../components/Content.astro";
+import TransitionCard from "../../components/TransitionCard.astro";
 import { Image } from "astro:assets";
-import squid from "../assets/images/jonathan-diemel-3CxVpFO739c-unsplash.jpg";
-import pinkNick from "../assets/images/Nick_Pink_895aa1f259.jpeg";
-import Name from "../components/animatedSvgs/Name.astro";
-import ContactMe from "../components/ContactMe.astro";
-import Skills from "../components/Skills.astro";
-import Typescript from "../components/badges/Typescript.astro";
-import Figma from "../components/badges/Figma.astro";
-import Nextjs from "../components/badges/Nextjs.astro";
-import Test from "../components/Test.astro";
+import squid from "../../assets/images/jonathan-diemel-3CxVpFO739c-unsplash.jpg";
+import pinkNick from "../../assets/images/Nick_Pink_895aa1f259.jpeg";
+import Name from "../../components/animatedSvgs/Name.astro";
+import ContactMe from "../../components/ContactMe.astro";
+import Skills from "../../components/Skills.astro";
+import Figma from "../../components/badges/Figma.astro";
+import Typescript from "../../components/badges/Typescript.astro";
+import Test from "../../components/Test.astro";
+import Nextjs from "../../components/badges/Nextjs.astro";
 ---
 
 <Layout title="Home">
-    <div <main>
+    <main>
         <section class="relative w-screen">
             <Image
                 src={squid}
@@ -78,7 +78,27 @@ import Test from "../components/Test.astro";
         </section>
 
         <Skills />
+        <a href="/">home</a>
+        <div id="skills" class="flex h-[3rem] max-h-[3rem] w-full">
+            <div class="h-[3rem] w-[3rem]">
+                <Nextjs />
+            </div>
+            <div class="h-[3rem] w-[3rem]" transition:name="typescript">
+                <Typescript />
+            </div>
+            <div class="h-3rem w-[3rem]" transition:name="figma">
+                <Figma />
+            </div>
+        </div>
+        <div>
+            <h1 transition:name="head2">Heading Transition 2</h1>
+        </div>
+        <div>
+            <h1 transition:name="head1">Heading Transition 1</h1>
+        </div>
+        <Test text="test1" />
+        <Test text="test2" />
 
         <ContactMe />
-    </div>
+    </main>
 </Layout>
