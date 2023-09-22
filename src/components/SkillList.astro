@@ -34,7 +34,7 @@ const badges = [
     Javascript,
     React,
     Redux,
-    // Nextjs,
+    Nextjs,
     Html,
     Css,
     Tailwind,
@@ -65,23 +65,19 @@ const colorOverrides = new Map();
 colorOverrides.set(Lua, "skyblue");
 ---
 
-<section
-    class="flex w-full flex-col justify-center gap-10 bg-pink-800 bg-gradient-to-bl from-black to-purple-950 py-10 align-middle"
->
-    <div class="mx-auto">
-        <h1 class="text-4xl font-bold">Skills</h1>
-    </div>
-    <div class="mx-auto flex w-full max-w-2xl flex-wrap justify-center gap-5">
-        {
-            badges.map((Badge) => {
-                const override = colorOverrides.get(Badge);
+<div class="mx-auto flex w-full max-w-2xl flex-wrap justify-center gap-5">
+    {
+        badges.map((Badge) => {
+            const override = colorOverrides.get(Badge);
 
-                return (
-                    <div class="w-full max-w-[4rem] transition-transform hover:scale-110">
-                        {override ? <Badge fill={override} /> : <Badge />}
-                    </div>
-                );
-            })
-        }
-    </div>
-</section>
+            return (
+                <div
+                    class="w-full max-w-[4rem] transition-transform hover:scale-110"
+                    transition:name={Badge.name}
+                >
+                    {override ? <Badge fill={override} /> : <Badge />}
+                </div>
+            );
+        })
+    }
+</div>

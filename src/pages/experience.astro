@@ -11,7 +11,7 @@ const { Content, frontmatter } = page;
         <span transition:name="experience-title">{frontmatter.title}</span>
     </h1>
 
-    <div class="w-full h-full" transition:animate={slide({ duration: 500 })}>
+    <div class="h-full w-full" transition:animate={slide({ duration: 500 })}>
         <Content />
     </div>
 </TextPage>

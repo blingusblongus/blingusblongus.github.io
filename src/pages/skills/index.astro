@@ -1,0 +1,18 @@
+---
+import Skills from "../../components/Skills.astro";
+import Layout from "../../layouts/Layout.astro";
+import SkillList from "../../components/SkillList.astro";
+import SkillsLayout from "../../layouts/SkillsLayout.astro";
+import LoveList from "../../components/skills/LoveList.astro";
+---
+
+<Layout title="Skills">
+    <SkillsLayout>
+        <div class="flex w-full justify-center gap-3">
+            <span>Select Sorting:</span>
+            <span><a href="/skills/lovelikemeh">Love/Like</a></span>
+        </div>
+        <SkillList />
+        <!-- <LoveList /> -->
+    </SkillsLayout>
+</Layout>

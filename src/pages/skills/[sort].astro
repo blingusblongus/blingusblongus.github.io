@@ -1,0 +1,208 @@
+---
+import SkillList from "../../components/SkillList.astro";
+import Skills from "../../components/Skills.astro";
+import Layout from "../../layouts/Layout.astro";
+import SkillsLayout from "../../layouts/SkillsLayout.astro";
+import AfterEffects from "../../components/badges/AfterEffects.astro";
+import AndroidStudio from "../../components/badges/AndroidStudio.astro";
+import Angularjs from "../../components/badges/Angularjs.astro";
+import AstroIcon from "../../components/badges/AstroIcon.astro";
+import Blender from "../../components/badges/Blender.astro";
+import CSharp from "../../components/badges/CSharp.astro";
+import Css from "../../components/badges/Css.astro";
+import Dotnet from "../../components/badges/Dotnet.astro";
+import Express from "../../components/badges/Express.astro";
+import Figma from "../../components/badges/Figma.astro";
+import Git from "../../components/badges/Git.astro";
+import Github from "../../components/badges/Github.astro";
+import Html from "../../components/badges/Html.astro";
+import Javascript from "../../components/badges/Javascript.astro";
+import Jest from "../../components/badges/Jest.astro";
+import Lua from "../../components/badges/Lua.astro";
+import Nextjs from "../../components/badges/Nextjs.astro";
+import Nodejs from "../../components/badges/Nodejs.astro";
+import PostgreSQL from "../../components/badges/PostgreSQL.astro";
+import Python from "../../components/badges/Python.astro";
+import React from "../../components/badges/React.astro";
+import Redux from "../../components/badges/Redux.astro";
+import Rust from "../../components/badges/Rust.astro";
+import Sass from "../../components/badges/Sass.astro";
+import Tailwind from "../../components/badges/Tailwind.astro";
+import Terraform from "../../components/badges/Terraform.astro";
+import Threejs from "../../components/badges/Threejs.astro";
+import Typescript from "../../components/badges/Typescript.astro";
+import Vim from "../../components/badges/Vim.astro";
+
+export async function getStaticPaths() {
+    return [{ params: { sort: "all" } }, { params: { sort: "lovelikemeh" } }, {params: {sort: "prohobby"}}];
+}
+
+const { sort } = Astro.params;
+
+const loveList = [
+    Typescript,
+    Git,
+    Vim,
+    Tailwind,
+    React,
+    AstroIcon,
+    Github,
+    Blender,
+];
+const likeList = [
+    Javascript,
+    Redux,
+    Nextjs,
+    Jest,
+    Sass,
+    Css,
+    PostgreSQL,
+    Rust,
+    Python,
+];
+
+const proList = [
+    Typescript,
+    Javascript,
+    React,
+    Redux,
+    Nextjs,
+    Html,
+    Css,
+    Tailwind,
+    Sass,
+    Git,
+    Github,
+    Nodejs,
+    Express,
+    PostgreSQL,
+    Terraform,
+    AndroidStudio,
+    Angularjs,
+    CSharp,
+    Dotnet,
+    Blender,
+    AfterEffects,
+]
+
+const hobbyList = [
+    AstroIcon,
+    Lua,
+    Python,
+    Rust,
+    Threejs,
+]
+---
+
+<Layout title="Skills">
+    <SkillsLayout>
+        {
+            sort === "lovelikemeh" && (
+                <div class="flex flex-col gap-[3rem] grow text-xl">
+                    <div class="flex w-full justify-center gap-3">
+                        <span>
+                            <a href="/skills/all">All</a>
+                        </span>
+                        <span class="text-blue-300">
+                            <a href="/skills/lovelikemeh">Love/Like</a>
+                        </span>
+                        <span>
+                            <a href="/skills/prohobby">Pro/Personal</a>
+                        </span>
+                    </div>
+                    <div class="mx-auto flex w-full max-w-2xl flex-wrap justify-center gap-5">
+                        <div class="text-2xl font-bold">Love these</div>
+                        <div class="flex w-full justify-center gap-3 flex-wrap">
+                            {loveList.map((Badge) => {
+                                return (
+                                    <div
+                                        class="h-[3rem] w-[3rem]"
+                                        transition:name={Badge.name}
+                                    >
+                                        <Badge />
+                                    </div>
+                                );
+                            })}
+                        </div>
+                        <div class="text-2xl font-bold">Like These</div>
+                        <div class="flex w-full justify-center gap-3 flex-wrap">
+                            {likeList.map((Badge) => {
+                                return (
+                                    <div
+                                        class="h-[3rem] w-[3rem]"
+                                        transition:name={Badge.name}
+                                    >
+                                        <Badge />
+                                    </div>
+                                );
+                            })}
+                        </div>
+                    </div>
+                </div>
+            )
+        }
+        {sort === "all" && (
+                <div class="flex flex-col gap-[3rem] grow">
+                    <div class="flex w-full justify-center gap-3 text-xl">
+                        <span class="text-blue-300">
+                            <a href="/skills/all">All</a>
+                        </span>
+                        <span>
+                            <a href="/skills/lovelikemeh">Love/Like</a>
+                        </span>
+                        <span>
+                            <a href="/skills/prohobby">Pro/Personal</a>
+                        </span>
+                    </div>
+                    <SkillList />
+                    <!-- <LoveList /> -->
+            </div>
+            )
+        }
+        {sort === "prohobby" && (
+                <div class="flex flex-col gap-[3rem] grow">
+                    <div class="flex w-full justify-center gap-3 text-xl">
+                        <span>
+                            <a href="/skills/all">All</a>
+                        </span>
+                        <span>
+                            <a href="/skills/lovelikemeh">Love/Like</a>
+                        </span>
+                        <span class="text-blue-300">
+                            <a href="/skills/prohobby">Pro/Personal</a>
+                        </span>
+                    </div>
+
+                    <div class="mx-auto flex w-full max-w-2xl flex-wrap justify-center gap-5">
+                        <div class="text-2xl font-bold">Professional Experience</div>
+                        <div class="flex w-full justify-center gap-3 flex-wrap">
+                            {proList.map((Badge) => {
+                                return (
+                                    <div
+                                        class="h-[3rem] w-[3rem]"
+                                        transition:name={Badge.name}
+                                    >
+                                        <Badge />
+                                    </div>
+                                );
+                            })}
+                        </div>
+                        <div class="text-2xl font-bold">Personal Experience</div>
+                        <div class="flex  w-full justify-center gap-3">
+                            {hobbyList.map((Badge) => {
+                                return (
+                                    <div
+                                        class="h-[3rem] w-[3rem]"
+                                        transition:name={Badge.name}
+                                    >
+                                        <Badge />
+                                    </div>
+                                );
+                            })}
+                        </div>
+                    </div>
+            </div>
+            )
+        }
+    </SkillsLayout>
+</Layout>
