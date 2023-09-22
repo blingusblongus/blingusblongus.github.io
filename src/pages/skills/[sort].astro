@@ -92,6 +92,9 @@ const hobbyList = [
     Rust,
     Threejs,
 ]
+
+const colorOverrides = new Map();
+colorOverrides.set(Lua, "skyblue");
 ---
 
 <Layout title="Skills">
@@ -103,7 +106,7 @@ const hobbyList = [
                         <span>
                             <a href="/skills/all">All</a>
                         </span>
-                        <span class="text-blue-300">
+                        <span class="text-blue-300 underline">
                             <a href="/skills/lovelikemeh">Love/Like</a>
                         </span>
                         <span>
@@ -144,7 +147,7 @@ const hobbyList = [
         {sort === "all" && (
                 <div class="flex flex-col gap-[3rem] grow">
                     <div class="flex w-full justify-center gap-3 text-xl">
-                        <span class="text-blue-300">
+                        <span class="text-blue-300 underline">
                             <a href="/skills/all">All</a>
                         </span>
                         <span>
@@ -168,7 +171,7 @@ const hobbyList = [
                         <span>
                             <a href="/skills/lovelikemeh">Love/Like</a>
                         </span>
-                        <span class="text-blue-300">
+                        <span class="text-blue-300 underline">
                             <a href="/skills/prohobby">Pro/Personal</a>
                         </span>
                     </div>
