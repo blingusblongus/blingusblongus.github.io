@@ -33,17 +33,20 @@ const sorts = [
         <div class="flex w-full justify-center gap-3">
             {
                 sorts.map((selected) => {
+                    const active = selected.path === path;
                     return (
-                        <span
-                            class:list={[
-                                selected.path === path &&
-                                    "text-sky-300 underline",
-                            ]}
-                        >
-                            <a href={pathPrefix + selected.path}>
-                                {selected.label}
-                            </a>
-                        </span>
+                        <div class="flex flex-col">
+                            <span
+                                class:list={[
+                                    active && "bg-violet-700",
+                                    "rounded-full p-1 px-3",
+                                ]}
+                            >
+                                <a href={pathPrefix + selected.path}>
+                                    {selected.label}
+                                </a>
+                            </span>
+                        </div>
                     );
                 })
             }
