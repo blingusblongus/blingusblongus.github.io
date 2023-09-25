@@ -10,6 +10,12 @@ const { Content, frontmatter } = page;
     <h1>
         <span transition:name="experience-title">{frontmatter.title}</span>
     </h1>
+    <p class="text-sm font-light italic">
+        Alternatively, <a href="/resume.pdf" target="_blank">view</a> or <a
+            href="/resume.pdf"
+            download>download</a
+        > my full resume as a pdf.
+    </p>
 
     <div class="h-full w-full" transition:animate={slide({ duration: 500 })}>
         <Content />
