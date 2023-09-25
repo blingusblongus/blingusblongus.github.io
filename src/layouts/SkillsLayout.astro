@@ -1,5 +1,24 @@
 ---
-const { fullheight = false, title = "Skills" } = Astro.props;
+interface Props {
+    path: string;
+}
+const { path = "/all" } = Astro.props;
+
+const pathPrefix = "/skills";
+const sorts = [
+    {
+        label: "All",
+        path: "/all",
+    },
+    {
+        label: "Love/Like",
+        path: "/lovelikemeh",
+    },
+    {
+        label: "Pro/Hobby",
+        path: "/prohobby",
+    },
+];
 ---
 
 <section
@@ -7,11 +26,29 @@ const { fullheight = false, title = "Skills" } = Astro.props;
 >
     <div class="mx-auto">
         <h1 class="text-4xl font-bold">
-            <span transition:name="skills-title">
-                {title}
-            </span>
+            <span transition:name="skills-title"> Skills</span>
         </h1>
     </div>
+    <div class="flex grow flex-col gap-[3rem] text-xl">
+        <div class="flex w-full justify-center gap-3">
+            {
+                sorts.map((selected) => {
+                    return (
+                        <span
+                            class:list={[
+                                selected.path === path &&
+                                    "text-sky-300 underline",
+                            ]}
+                        >
+                            <a href={pathPrefix + selected.path}>
+                                {selected.label}
+                            </a>
+                        </span>
+                    );
+                })
+            }
+        </div>
 
-    <slot />
+        <slot />
+    </div>
 </section>

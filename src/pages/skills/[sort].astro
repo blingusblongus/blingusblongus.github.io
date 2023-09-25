@@ -34,7 +34,11 @@ import Typescript from "../../components/badges/Typescript.astro";
 import Vim from "../../components/badges/Vim.astro";
 
 export async function getStaticPaths() {
-    return [{ params: { sort: "all" } }, { params: { sort: "lovelikemeh" } }, {params: {sort: "prohobby"}}];
+    return [
+        { params: { sort: "all" } },
+        { params: { sort: "lovelikemeh" } },
+        { params: { sort: "prohobby" } },
+    ];
 }
 
 const { sort } = Astro.params;
@@ -83,43 +87,67 @@ const proList = [
     Dotnet,
     Blender,
     AfterEffects,
-]
+];
 
-const hobbyList = [
-    AstroIcon,
-    Lua,
-    Python,
-    Rust,
-    Threejs,
-]
+const hobbyList = [AstroIcon, Lua, Python, Rust, Threejs];
 
 const colorOverrides = new Map();
 colorOverrides.set(Lua, "skyblue");
 ---
 
 <Layout title="Skills" path="/skills">
-    <SkillsLayout>
+    <SkillsLayout path={`/${sort}`}>
         {
             sort === "lovelikemeh" && (
-                <div class="flex flex-col gap-[3rem] grow text-xl">
-                    <div class="flex w-full justify-center gap-3">
-                        <span>
-                            <a href="/skills/all">All</a>
-                        </span>
-                        <span class="text-blue-300 underline">
-                            <a href="/skills/lovelikemeh">Love/Like</a>
-                        </span>
-                        <span>
-                            <a href="/skills/prohobby">Pro/Personal</a>
-                        </span>
+                <div class="mx-auto flex w-full max-w-2xl flex-wrap justify-center gap-5">
+                    <div class="text-2xl font-bold">Love these</div>
+                    <div class="flex w-full flex-wrap justify-center gap-3">
+                        {loveList.map((Badge) => {
+                            return (
+                                <div
+                                    class="h-[3rem] w-[3rem] hover:scale-110"
+                                    transition:name={Badge.name}
+                                >
+                                    <Badge />
+                                </div>
+                            );
+                        })}
                     </div>
+                    <div class="text-2xl font-bold">Like These</div>
+                    <div class="flex w-full flex-wrap justify-center gap-3">
+                        {likeList.map((Badge) => {
+                            return (
+                                <div
+                                    class="h-[3rem] w-[3rem] hover:scale-110"
+                                    transition:name={Badge.name}
+                                >
+                                    <Badge />
+                                </div>
+                            );
+                        })}
+                    </div>
+                </div>
+            )
+        }
+        {
+            sort === "all" && (
+                <div class="flex grow flex-col gap-[3rem]">
+                    <SkillList />
+                </div>
+            )
+        }
+        {
+            sort === "prohobby" && (
+                <div class="flex grow flex-col gap-[3rem]">
                     <div class="mx-auto flex w-full max-w-2xl flex-wrap justify-center gap-5">
-                        <div class="text-2xl font-bold">Love these</div>
-                        <div class="flex w-full justify-center gap-3 flex-wrap">
-                            {loveList.map((Badge) => {
+                        <div class="text-2xl font-bold">
+                            Professional Experience
+                        </div>
+                        <div class="flex w-full flex-wrap justify-center gap-3">
+                            {proList.map((Badge) => {
                                 return (
                                     <div
-                                        class="h-[3rem] w-[3rem]"
+                                        class="h-[3rem] w-[3rem] hover:scale-110"
                                         transition:name={Badge.name}
                                     >
                                         <Badge />
@@ -127,12 +155,14 @@ colorOverrides.set(Lua, "skyblue");
                                 );
                             })}
                         </div>
-                        <div class="text-2xl font-bold">Like These</div>
-                        <div class="flex w-full justify-center gap-3 flex-wrap">
-                            {likeList.map((Badge) => {
+                        <div class="text-2xl font-bold">
+                            Personal Experience
+                        </div>
+                        <div class="flex  w-full justify-center gap-3">
+                            {hobbyList.map((Badge) => {
                                 return (
                                     <div
-                                        class="h-[3rem] w-[3rem]"
+                                        class="h-[3rem] w-[3rem] hover:scale-110"
                                         transition:name={Badge.name}
                                     >
                                         <Badge />
@@ -142,69 +172,6 @@ colorOverrides.set(Lua, "skyblue");
                         </div>
                     </div>
                 </div>
-            )
-        }
-        {sort === "all" && (
-                <div class="flex flex-col gap-[3rem] grow">
-                    <div class="flex w-full justify-center gap-3 text-xl">
-                        <span class="text-blue-300 underline">
-                            <a href="/skills/all">All</a>
-                        </span>
-                        <span>
-                            <a href="/skills/lovelikemeh">Love/Like</a>
-                        </span>
-                        <span>
-                            <a href="/skills/prohobby">Pro/Personal</a>
-                        </span>
-                    </div>
-                    <SkillList />
-                    <!-- <LoveList /> -->
-            </div>
-            )
-        }
-        {sort === "prohobby" && (
-                <div class="flex flex-col gap-[3rem] grow">
-                    <div class="flex w-full justify-center gap-3 text-xl">
-                        <span>
-                            <a href="/skills/all">All</a>
-                        </span>
-                        <span>
-                            <a href="/skills/lovelikemeh">Love/Like</a>
-                        </span>
-                        <span class="text-blue-300 underline">
-                            <a href="/skills/prohobby">Pro/Personal</a>
-                        </span>
-                    </div>
-
-                    <div class="mx-auto flex w-full max-w-2xl flex-wrap justify-center gap-5">
-                        <div class="text-2xl font-bold">Professional Experience</div>
-                        <div class="flex w-full justify-center gap-3 flex-wrap">
-                            {proList.map((Badge) => {
-                                return (
-                                    <div
-                                        class="h-[3rem] w-[3rem]"
-                                        transition:name={Badge.name}
-                                    >
-                                        <Badge />
-                                    </div>
-                                );
-                            })}
-                        </div>
-                        <div class="text-2xl font-bold">Personal Experience</div>
-                        <div class="flex  w-full justify-center gap-3">
-                            {hobbyList.map((Badge) => {
-                                return (
-                                    <div
-                                        class="h-[3rem] w-[3rem]"
-                                        transition:name={Badge.name}
-                                    >
-                                        <Badge />
-                                    </div>
-                                );
-                            })}
-                        </div>
-                    </div>
-            </div>
             )
         }
     </SkillsLayout>
