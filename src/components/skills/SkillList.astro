@@ -15,7 +15,7 @@ let colorOverrides: { [key: string]: string } = {
         badges.map((Badge) => {
             return (
                 <div
-                    class={`h-[${size}] w-[${size}] hover:scale-110`}
+                    class="h-[3rem] w-[3rem] hover:scale-110"
                     transition:name={Badge.name}
                 >
                     {Badge.name in colorOverrides ? (
