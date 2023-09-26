@@ -8,7 +8,7 @@ import pinkNick from "../assets/images/Nick_Pink_895aa1f259.jpeg";
 import Name from "../components/animatedSvgs/Name.astro";
 import ContactMe from "../components/ContactMe.astro";
 import SkillList from "../components/skills/SkillList.astro";
-import { all } from "../components/skills/skillList.data.astro";
+import { allBadges } from "../components/skills/skillList.data.astro";
 ---
 
 <Layout title="Home">
@@ -87,7 +87,7 @@ import { all } from "../components/skills/skillList.data.astro";
             <div
                 class="mx-auto flex w-full max-w-2xl flex-wrap justify-center gap-5"
             >
-                <SkillList badges={all} />
+                <SkillList badges={allBadges} />
             </div>
         </section>
 
