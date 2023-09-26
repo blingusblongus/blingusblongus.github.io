@@ -7,7 +7,8 @@ import squid from "../assets/images/jonathan-diemel-3CxVpFO739c-unsplash.jpg";
 import pinkNick from "../assets/images/Nick_Pink_895aa1f259.jpeg";
 import Name from "../components/animatedSvgs/Name.astro";
 import ContactMe from "../components/ContactMe.astro";
-import Skills from "../components/Skills.astro";
+import SkillList from "../components/skills/SkillList.astro";
+import { allBadges } from "../components/skills/skillList.data.astro";
 ---
 
 <Layout title="Home">
@@ -73,7 +74,22 @@ import Skills from "../components/Skills.astro";
             </Content>
         </section>
 
-        <Skills />
+        <section
+            class="flex w-full flex-col justify-center gap-10 bg-pink-800 bg-gradient-to-bl from-black to-purple-950 py-10 align-middle"
+        >
+            <div class="mx-auto">
+                <h1 class="text-4xl font-bold">
+                    <a href="/skills/all">
+                        <span transition:name="skills-title">Skills</span>
+                    </a>
+                </h1>
+            </div>
+            <div
+                class="mx-auto flex w-full max-w-2xl flex-wrap justify-center gap-5"
+            >
+                <SkillList badges={allBadges} />
+            </div>
+        </section>
 
         <ContactMe />
     </div>

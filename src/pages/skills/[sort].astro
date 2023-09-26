@@ -1,37 +1,14 @@
 ---
-import SkillList from "../../components/SkillList.astro";
-import Skills from "../../components/Skills.astro";
+import {
+    allBadges,
+    likeList,
+    loveList,
+    proList,
+    hobbyList,
+} from "../../components/skills/skillList.data.astro";
 import Layout from "../../layouts/Layout.astro";
 import SkillsLayout from "../../layouts/SkillsLayout.astro";
-import AfterEffects from "../../components/badges/AfterEffects.astro";
-import AndroidStudio from "../../components/badges/AndroidStudio.astro";
-import Angularjs from "../../components/badges/Angularjs.astro";
-import AstroIcon from "../../components/badges/AstroIcon.astro";
-import Blender from "../../components/badges/Blender.astro";
-import CSharp from "../../components/badges/CSharp.astro";
-import Css from "../../components/badges/Css.astro";
-import Dotnet from "../../components/badges/Dotnet.astro";
-import Express from "../../components/badges/Express.astro";
-import Figma from "../../components/badges/Figma.astro";
-import Git from "../../components/badges/Git.astro";
-import Github from "../../components/badges/Github.astro";
-import Html from "../../components/badges/Html.astro";
-import Javascript from "../../components/badges/Javascript.astro";
-import Jest from "../../components/badges/Jest.astro";
-import Lua from "../../components/badges/Lua.astro";
-import Nextjs from "../../components/badges/Nextjs.astro";
-import Nodejs from "../../components/badges/Nodejs.astro";
-import PostgreSQL from "../../components/badges/PostgreSQL.astro";
-import Python from "../../components/badges/Python.astro";
-import React from "../../components/badges/React.astro";
-import Redux from "../../components/badges/Redux.astro";
-import Rust from "../../components/badges/Rust.astro";
-import Sass from "../../components/badges/Sass.astro";
-import Tailwind from "../../components/badges/Tailwind.astro";
-import Terraform from "../../components/badges/Terraform.astro";
-import Threejs from "../../components/badges/Threejs.astro";
-import Typescript from "../../components/badges/Typescript.astro";
-import Vim from "../../components/badges/Vim.astro";
+import SkillList from "../../components/skills/SkillList.astro";
 
 export async function getStaticPaths() {
     return [
@@ -42,57 +19,6 @@ export async function getStaticPaths() {
 }
 
 const { sort } = Astro.params;
-
-const loveList = [
-    Typescript,
-    Git,
-    Vim,
-    Tailwind,
-    React,
-    AstroIcon,
-    Github,
-    Blender,
-];
-const likeList = [
-    Javascript,
-    Redux,
-    Nextjs,
-    Jest,
-    Sass,
-    Css,
-    PostgreSQL,
-    Rust,
-    Python,
-];
-
-const proList = [
-    Typescript,
-    Javascript,
-    React,
-    Redux,
-    Nextjs,
-    Html,
-    Css,
-    Tailwind,
-    Sass,
-    Git,
-    Github,
-    Nodejs,
-    Express,
-    PostgreSQL,
-    Terraform,
-    AndroidStudio,
-    Angularjs,
-    CSharp,
-    Dotnet,
-    Blender,
-    AfterEffects,
-];
-
-const hobbyList = [AstroIcon, Lua, Python, Rust, Threejs];
-
-const colorOverrides = new Map();
-colorOverrides.set(Lua, "skyblue");
 ---
 
 <Layout title="Skills" path="/skills">
@@ -101,38 +27,20 @@ colorOverrides.set(Lua, "skyblue");
             sort === "lovelikemeh" && (
                 <div class="mx-auto flex w-full max-w-2xl flex-wrap justify-center gap-5">
                     <div class="text-2xl font-bold">Love these</div>
-                    <div class="flex w-full flex-wrap justify-center gap-3">
-                        {loveList.map((Badge) => {
-                            return (
-                                <div
-                                    class="h-[3rem] w-[3rem] hover:scale-110"
-                                    transition:name={Badge.name}
-                                >
-                                    <Badge />
-                                </div>
-                            );
-                        })}
-                    </div>
+                    <SkillList badges={loveList} />
+
                     <div class="text-2xl font-bold">Like These</div>
-                    <div class="flex w-full flex-wrap justify-center gap-3">
-                        {likeList.map((Badge) => {
-                            return (
-                                <div
-                                    class="h-[3rem] w-[3rem] hover:scale-110"
-                                    transition:name={Badge.name}
-                                >
-                                    <Badge />
-                                </div>
-                            );
-                        })}
-                    </div>
+                    <SkillList badges={likeList} />
                 </div>
             )
         }
         {
             sort === "all" && (
                 <div class="flex grow flex-col gap-[3rem]">
-                    <SkillList />
+                    <div class="mx-auto flex w-full max-w-2xl flex-wrap justify-center gap-5">
+                        <div class="text-2xl font-bold">All Skills</div>
+                        <SkillList badges={allBadges} />
+                    </div>
                 </div>
             )
         }
@@ -143,33 +51,12 @@ colorOverrides.set(Lua, "skyblue");
                         <div class="text-2xl font-bold">
                             Professional Experience
                         </div>
-                        <div class="flex w-full flex-wrap justify-center gap-3">
-                            {proList.map((Badge) => {
-                                return (
-                                    <div
-                                        class="h-[3rem] w-[3rem] hover:scale-110"
-                                        transition:name={Badge.name}
-                                    >
-                                        <Badge />
-                                    </div>
-                                );
-                            })}
-                        </div>
+                        <SkillList badges={proList} />
+
                         <div class="text-2xl font-bold">
                             Personal Experience
                         </div>
-                        <div class="flex  w-full justify-center gap-3">
-                            {hobbyList.map((Badge) => {
-                                return (
-                                    <div
-                                        class="h-[3rem] w-[3rem] hover:scale-110"
-                                        transition:name={Badge.name}
-                                    >
-                                        <Badge />
-                                    </div>
-                                );
-                            })}
-                        </div>
+                        <SkillList badges={hobbyList} />
                     </div>
                 </div>
             )
