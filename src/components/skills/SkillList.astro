@@ -1,0 +1,30 @@
+---
+interface Props {
+    badges: Array<(_props: Record<string, any>) => any>;
+    size?: string;
+}
+const { badges, size = "3rem" } = Astro.props;
+
+let colorOverrides: { [key: string]: string } = {
+    Lua: "skyblue",
+};
+---
+
+<div class="flex w-full flex-wrap justify-center gap-3">
+    {
+        badges.map((Badge) => {
+            return (
+                <div
+                    class={`h-[${size}] w-[${size}] hover:scale-110`}
+                    transition:name={Badge.name}
+                >
+                    {Badge.name in colorOverrides ? (
+                        <Badge fill={colorOverrides[Badge.name]} />
+                    ) : (
+                        <Badge />
+                    )}
+                </div>
+            );
+        })
+    }
+</div>

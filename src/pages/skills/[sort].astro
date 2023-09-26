@@ -1,6 +1,4 @@
 ---
-import SkillList from "../../components/SkillList.astro";
-import Skills from "../../components/Skills.astro";
 import Layout from "../../layouts/Layout.astro";
 import SkillsLayout from "../../layouts/SkillsLayout.astro";
 import AfterEffects from "../../components/badges/AfterEffects.astro";
@@ -32,6 +30,7 @@ import Terraform from "../../components/badges/Terraform.astro";
 import Threejs from "../../components/badges/Threejs.astro";
 import Typescript from "../../components/badges/Typescript.astro";
 import Vim from "../../components/badges/Vim.astro";
+import SkillList from "../../components/skills/SkillList.astro";
 
 export async function getStaticPaths() {
     return [
@@ -42,6 +41,38 @@ export async function getStaticPaths() {
 }
 
 const { sort } = Astro.params;
+
+const all = [
+    Typescript,
+    Javascript,
+    React,
+    Redux,
+    Nextjs,
+    Html,
+    Css,
+    Tailwind,
+    Sass,
+    Git,
+    Github,
+    Nodejs,
+    Express,
+    PostgreSQL,
+    CSharp,
+    Dotnet,
+    Terraform,
+    AndroidStudio,
+    Angularjs,
+    AstroIcon,
+    Figma,
+    Jest,
+    Lua,
+    Python,
+    Rust,
+    Threejs,
+    Blender,
+    AfterEffects,
+    Vim,
+];
 
 const loveList = [
     Typescript,
@@ -85,14 +116,12 @@ const proList = [
     Angularjs,
     CSharp,
     Dotnet,
+    Figma,
     Blender,
     AfterEffects,
 ];
 
 const hobbyList = [AstroIcon, Lua, Python, Rust, Threejs];
-
-const colorOverrides = new Map();
-colorOverrides.set(Lua, "skyblue");
 ---
 
 <Layout title="Skills" path="/skills">
@@ -101,38 +130,20 @@ colorOverrides.set(Lua, "skyblue");
             sort === "lovelikemeh" && (
                 <div class="mx-auto flex w-full max-w-2xl flex-wrap justify-center gap-5">
                     <div class="text-2xl font-bold">Love these</div>
-                    <div class="flex w-full flex-wrap justify-center gap-3">
-                        {loveList.map((Badge) => {
-                            return (
-                                <div
-                                    class="h-[3rem] w-[3rem] hover:scale-110"
-                                    transition:name={Badge.name}
-                                >
-                                    <Badge />
-                                </div>
-                            );
-                        })}
-                    </div>
+                    <SkillList badges={loveList} />
+
                     <div class="text-2xl font-bold">Like These</div>
-                    <div class="flex w-full flex-wrap justify-center gap-3">
-                        {likeList.map((Badge) => {
-                            return (
-                                <div
-                                    class="h-[3rem] w-[3rem] hover:scale-110"
-                                    transition:name={Badge.name}
-                                >
-                                    <Badge />
-                                </div>
-                            );
-                        })}
-                    </div>
+                    <SkillList badges={likeList} />
                 </div>
             )
         }
         {
             sort === "all" && (
                 <div class="flex grow flex-col gap-[3rem]">
-                    <SkillList />
+                    <div class="mx-auto flex w-full max-w-2xl flex-wrap justify-center gap-5">
+                        <div class="text-2xl font-bold">All Skills</div>
+                        <SkillList badges={all} size="4rem" />
+                    </div>
                 </div>
             )
         }
@@ -143,43 +154,12 @@ colorOverrides.set(Lua, "skyblue");
                         <div class="text-2xl font-bold">
                             Professional Experience
                         </div>
-                        <div class="flex w-full flex-wrap justify-center gap-3">
-                            {proList.map((Badge) => {
-                                const override = colorOverrides.get(Badge);
-                                return (
-                                    <div
-                                        class="h-[3rem] w-[3rem] hover:scale-110"
-                                        transition:name={Badge.name}
-                                    >
-                                        {override ? (
-                                            <Badge fill={override} />
-                                        ) : (
-                                            <Badge />
-                                        )}
-                                    </div>
-                                );
-                            })}
-                        </div>
+                        <SkillList badges={proList} />
+
                         <div class="text-2xl font-bold">
                             Personal Experience
                         </div>
-                        <div class="flex  w-full justify-center gap-3">
-                            {hobbyList.map((Badge) => {
-                                const override = colorOverrides.get(Badge);
-                                return (
-                                    <div
-                                        class="h-[3rem] w-[3rem] hover:scale-110"
-                                        transition:name={Badge.name}
-                                    >
-                                        {override ? (
-                                            <Badge fill={override} />
-                                        ) : (
-                                            <Badge />
-                                        )}
-                                    </div>
-                                );
-                            })}
-                        </div>
+                        <SkillList badges={hobbyList} />
                     </div>
                 </div>
             )
