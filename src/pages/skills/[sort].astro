@@ -145,12 +145,17 @@ colorOverrides.set(Lua, "skyblue");
                         </div>
                         <div class="flex w-full flex-wrap justify-center gap-3">
                             {proList.map((Badge) => {
+                                const override = colorOverrides.get(Badge);
                                 return (
                                     <div
                                         class="h-[3rem] w-[3rem] hover:scale-110"
                                         transition:name={Badge.name}
                                     >
-                                        <Badge />
+                                        {override ? (
+                                            <Badge fill={override} />
+                                        ) : (
+                                            <Badge />
+                                        )}
                                     </div>
                                 );
                             })}
@@ -160,12 +165,17 @@ colorOverrides.set(Lua, "skyblue");
                         </div>
                         <div class="flex  w-full justify-center gap-3">
                             {hobbyList.map((Badge) => {
+                                const override = colorOverrides.get(Badge);
                                 return (
                                     <div
                                         class="h-[3rem] w-[3rem] hover:scale-110"
                                         transition:name={Badge.name}
                                     >
-                                        <Badge />
+                                        {override ? (
+                                            <Badge fill={override} />
+                                        ) : (
+                                            <Badge />
+                                        )}
                                     </div>
                                 );
                             })}
