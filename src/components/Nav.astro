@@ -39,7 +39,7 @@ const alongPath = (path: string) => {
 
 <nav class="flex h-12 w-full items-center justify-between bg-slate-800 px-3">
     <div class="flex h-full w-auto">
-        <a href="/" class="flex items-center">
+        <a href="/" class="flex items-center" draggable="false">
             <Image
                 src={blingus}
                 alt="blingus"
@@ -60,7 +60,9 @@ const alongPath = (path: string) => {
                     return (
                         <div class="flex flex-col">
                             <div>
-                                <a href={item.path}>{item.label}</a>
+                                <a href={item.path} draggable="false">
+                                    {item.label}
+                                </a>
                             </div>
                             <div class="h-1 w-full" />
                         </div>
