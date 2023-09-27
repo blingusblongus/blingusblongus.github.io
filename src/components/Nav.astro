@@ -25,11 +25,16 @@ const navItems = [
     },
 ];
 
-interface Props {
-    path?: string;
-    title: string;
-}
-const { path, title } = Astro.props;
+const alongPath = (path: string) => {
+    const { pathname } = Astro.url;
+    const pathRe = /\/\w*/;
+
+    const p1 = path.match(pathRe)![0];
+    const p2 = pathname.match(pathRe)![0];
+
+    if (!p1 || !p2) return false;
+    return p1 === p2;
+};
 ---
 
 <nav class="flex h-12 w-full items-center justify-between bg-slate-800 px-3">
@@ -49,7 +54,7 @@ const { path, title } = Astro.props;
     <div class="hidden gap-5 p-3 xs:flex">
         {
             navItems.map((item) => {
-                let active = item.label === title;
+                let active = alongPath(item.path);
 
                 if (!active) {
                     return (

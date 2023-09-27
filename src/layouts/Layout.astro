@@ -4,9 +4,8 @@ import Footer from "../components/Footer.astro";
 import { ViewTransitions } from "astro:transitions";
 interface Props {
     title: string;
-    path?: string;
 }
-const { title, path } = Astro.props;
+const { title } = Astro.props;
 ---
 
 <!doctype html>
@@ -29,7 +28,7 @@ const { title, path } = Astro.props;
     </head>
     <body class="flex min-h-screen w-full flex-col justify-between">
         <header class="flex w-full">
-            <Nav title={title} />
+            <Nav />
         </header>
 
         <div class="flex grow flex-col">

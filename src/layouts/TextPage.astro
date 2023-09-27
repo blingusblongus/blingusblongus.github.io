@@ -4,8 +4,8 @@ import Layout from "./Layout.astro";
 const { title = "Blingusblongus", path } = Astro.props;
 ---
 
-<Layout title={title} path={path} transition:name="test-title">
-    <div class:list={["sm:w-5/6 m-auto px-3 max-w-2xl mt-[3rem]"]}>
+<Layout title={title} transition:name="test-title">
+    <div class:list={["m-auto mt-[3rem] max-w-2xl px-3 sm:w-5/6"]}>
         <article
             class="prose prose-invert lg:prose-lg prose-headings:mt-[3rem] prose-a:text-gray-400 hover:prose-a:text-sky-300"
         >
