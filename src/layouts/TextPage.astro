@@ -1,10 +1,24 @@
 ---
 import Layout from "./Layout.astro";
 
-const { title = "Blingusblongus" } = Astro.props;
+interface Props {
+    title: string;
+    background?: string;
+}
+const { title = "Blingusblongus", background } = Astro.props;
 ---
 
 <Layout title={title} transition:name="test-title">
+    {
+        background && (
+            <div
+                class:list={[
+                    "fixed top-0 -z-50 h-[100vh] w-[100vw]",
+                    background,
+                ]}
+            />
+        )
+    }
     <div class:list={["mx-auto max-w-2xl px-3 sm:w-5/6"]}>
         <article
             class="prose prose-invert lg:prose-lg prose-headings:mt-[3rem] prose-a:text-gray-400 hover:prose-a:text-sky-300"
