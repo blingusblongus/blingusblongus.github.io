@@ -5,7 +5,7 @@ import "../assets/styles/about.module.css";
 import Content from "../components/Content.astro";
 ---
 
-<Layout title="Blog" path="/blog">
+<Layout title="Blog">
     <Content>
         <article
             class="prose prose-invert lg:prose-lg prose-headings:mt-[3rem]"
@@ -17,7 +17,7 @@ import Content from "../components/Content.astro";
             </h1>
 
             <div
-                class="w-full h-full"
+                class="h-full w-full"
                 transition:animate={slide({ duration: 500 })}
             >
                 {"Coming soon <3"}

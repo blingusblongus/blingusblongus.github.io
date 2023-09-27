@@ -21,7 +21,7 @@ export async function getStaticPaths() {
 const { sort } = Astro.params;
 ---
 
-<Layout title="Skills" path="/skills">
+<Layout title="Skills">
     <SkillsLayout path={`/${sort}`}>
         {
             sort === "lovelikemeh" && (
