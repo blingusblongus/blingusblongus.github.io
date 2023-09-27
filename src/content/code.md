@@ -16,11 +16,13 @@ While this isn't a _project_, per se, I like putting this up top because I come 
 
 Well, you're already here. This site was built using Astro, starting with nothing but the basic template.
 
-It's actually been incredibly fascinating to learn the features of Astro 3.0 through building this site - if you're viewing this in Chrome, you might be surprised to learn that this is actually a multi-page app built to leverage the new View Transitions API, to seamlessly navigate to completely different, statically served pages. Personally, I'm really hoping this comes to other browsers soon, as it makes it incredibly easy to create fluid, friendly interfaces, with minimal bundle sizes (and effort).
+It's actually been fascinating to learn the features of <a href="https://astro.build/" target="_blank">Astro 3.0</a> through building this site - if you're viewing this in Chrome, you might be surprised to learn that this is actually a multi-page app built to leverage the new View Transitions API, to seamlessly navigate to completely different, statically served pages. Personally, I'm really hoping this comes to other browsers soon, as it makes it incredibly easy to create fluid, friendly interfaces, with minimal bundle sizes (and effort).
 
 The markup is largely Astro and React components (precompiled to reduce bundle size), but with the dynamic content driven by simple Markdown files - updating the site to include this section was as easy as editing an `.md` file and triggering a new deployment.
 
 Additionally, it's been exciting to design a with an eye on performance - using SSR or building an SPA is opt-in, per page, so I've elected to use SSG and partial hydration as much as possible, given the requirements of this site. The result is a performant, low-overhead site that (for now, at least), is served by a cdn, costs nothing, requires no maintainance, and is easy to update, all while offering the full expression of building in React or any other framework.
+
+Check out this site's code [here](https://github.com/blingusblongus/blingusblongus.github.io).
 
 ## Cribbage Trainer
 
