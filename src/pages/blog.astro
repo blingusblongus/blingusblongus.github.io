@@ -2,6 +2,12 @@
 import Layout from "../layouts/Layout.astro";
 import { slide } from "astro:transitions";
 import "../assets/styles/about.module.css";
+
+const allPosts = await Astro.glob("../pages/posts/*.md");
+const sortedPosts = allPosts.sort(
+    (a, b) => b.frontmatter.pubdate - a.frontmatter.pubdate,
+);
+console.log(allPosts);
 ---
 
 <Layout title="Blog">
@@ -19,7 +25,28 @@ import "../assets/styles/about.module.css";
                 class="h-full w-full"
                 transition:animate={slide({ duration: 500 })}
             >
-                {"Coming soon <3"}
+                {
+                    sortedPosts.map((post, i) => {
+                        if (i === 0) {
+                            return (
+                                <div class="flex flex-col items-center rounded-xl border-2 border-white bg-slate-900 p-6 prose-a:no-underline">
+                                    <a href={post.url}>
+                                        <img
+                                            src={post.frontmatter.image?.url}
+                                            alt={post.frontmatter.image?.alt}
+                                        />
+                                        <h1>
+                                            <span transition:name="post-title">
+                                                {post.frontmatter.title}
+                                            </span>
+                                        </h1>
+                                    </a>
+                                </div>
+                            );
+                        }
+                        return <div>{post.frontmatter.title}</div>;
+                    })
+                }
                 <p>
                     <a href="/posts/mpas-are-cool-again">MPAs are Cool Again</a>
                 </p>

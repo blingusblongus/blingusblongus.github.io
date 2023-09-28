@@ -16,7 +16,9 @@ const { frontmatter } = Astro.props;
                 src={frontmatter.image.url}
                 alt={frontmatter.image.alt}
             />
-            <h1 class="sm:mb-0">{frontmatter.title}</h1>
+            <h1 class="sm:mb-0" transition:name="post-title">
+                {frontmatter.title}
+            </h1>
             <span class="font-light italic">
                 {formatDate(frontmatter.pubdate)}
             </span>
