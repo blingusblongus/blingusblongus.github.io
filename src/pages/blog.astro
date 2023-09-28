@@ -2,13 +2,12 @@
 import Layout from "../layouts/Layout.astro";
 import { slide } from "astro:transitions";
 import "../assets/styles/about.module.css";
-import Content from "../components/Content.astro";
 ---
 
 <Layout title="Blog">
-    <Content>
+    <div class:list={["mx-auto max-w-2xl px-3 sm:w-5/6"]}>
         <article
-            class="prose prose-invert lg:prose-lg prose-headings:mt-[3rem]"
+            class="prose prose-invert lg:prose-lg prose-headings:mt-[3rem] prose-a:text-gray-400 hover:prose-a:text-sky-300"
         >
             <h1>
                 <span transition:name="blog-title" class="text-center"
@@ -21,7 +20,10 @@ import Content from "../components/Content.astro";
                 transition:animate={slide({ duration: 500 })}
             >
                 {"Coming soon <3"}
+                <p>
+                    <a href="/posts/mpas-are-cool-again">MPAs are Cool Again</a>
+                </p>
             </div>
         </article>
-    </Content>
+    </div>
 </Layout>
