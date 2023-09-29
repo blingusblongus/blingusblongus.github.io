@@ -1,15 +1,18 @@
 ---
 import TextPage from "../layouts/TextPage.astro";
-import * as page from "../content/about.md";
 import { slide } from "astro:transitions";
 import "../assets/styles/about.module.css";
-const { Content, frontmatter } = page;
+import { getEntry } from "astro:content";
+
+const page = await getEntry("mainPages", "about");
+const { data } = page;
+const { Content } = await page.render();
 ---
 
 <TextPage title="About">
     <h1>
         <span transition:name="about-title" class="text-center">
-            {frontmatter.title}
+            {data.title}
         </span>
     </h1>
 

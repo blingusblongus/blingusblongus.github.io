@@ -3,16 +3,13 @@ import Layout from "../layouts/Layout.astro";
 import { Image } from "astro:assets";
 import "../assets/styles/about.module.css";
 import blingus from "../assets/images/blingus.png";
+import { getCollection } from "astro:content";
 
-const allPosts = await Astro.glob("../pages/posts/*.md");
-const sortedPosts = allPosts.sort(
-    (a, b) => b.frontmatter.pubdate - a.frontmatter.pubdate,
-);
+const allPosts = await getCollection("blog");
+const sortedPosts = allPosts.sort((a, b) => b.data.pubdate - a.data.pubdate);
 
 const latest = sortedPosts[0];
-const recent = sortedPosts.slice(1, 3);
-console.log(latest);
-console.log(latest.frontmatter);
+const recent = sortedPosts.slice(1, 4);
 ---
 
 <Layout title="Blog">
@@ -30,17 +27,17 @@ console.log(latest.frontmatter);
                 {
                     latest && (
                         <div class="flex flex-col items-center rounded-xl border-2 border-s-4 border-sky-300 bg-gradient-to-b from-sky-950 to-slate-900 prose-a:no-underline">
-                            <a href={latest.url}>
+                            <a href={latest.data.url}>
                                 <img
-                                    src={latest.frontmatter.image?.url}
-                                    alt={latest.frontmatter.image?.alt}
+                                    src={latest.data.image?.url}
+                                    alt={latest.data.image?.alt}
                                 />
                                 <h1
                                     transition:name={
-                                        latest.frontmatter.slug + "-title"
+                                        latest.data.slug + "-title"
                                     }
                                 >
-                                    {latest.frontmatter.title}
+                                    {latest.data.title}
                                 </h1>
                             </a>
                         </div>
@@ -55,21 +52,19 @@ console.log(latest.frontmatter);
                                 {recent.map((post) => {
                                     return (
                                         <div class="not-prose flex flex-col justify-start rounded-xl border-2 border-sky-300 object-cover">
-                                            {post.frontmatter?.image ? (
+                                            {post.data?.image ? (
                                                 <div class="max-h-40 w-full max-w-sm overflow-clip object-contain">
                                                     <img
                                                         src={
-                                                            post.frontmatter
-                                                                .image?.url
+                                                            post.data.image?.url
                                                         }
                                                         alt={
-                                                            post.frontmatter
-                                                                .image?.alt
+                                                            post.data.image?.alt
                                                         }
                                                     />
                                                     {/* <Image */}
                                                     {/*     src={ */}
-                                                    {/*         post.frontmatter */}
+                                                    {/*         post.data */}
                                                     {/*             .image?.url */}
                                                     {/*     } */}
                                                     {/*     alt="picture" */}
@@ -83,7 +78,7 @@ console.log(latest.frontmatter);
                                                 />
                                             )}
                                             <h3 class="mx-3 mt-0">
-                                                {post.frontmatter.title}
+                                                {post.data.title}
                                             </h3>
                                         </div>
                                     );
