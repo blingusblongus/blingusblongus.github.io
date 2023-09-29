@@ -5,7 +5,7 @@ pubdate: 2023-09-13
 cover: ../../assets/images/Nick_Pink_895aa1f259.jpeg
 coverAlt: Nick Pink
 image:
-    url: src/assets/images/Nick_Pink_895aa1f259.jpeg
+    src: src/assets/images/Nick_Pink_895aa1f259.jpeg
     alt: Nick Allen
 ---
 

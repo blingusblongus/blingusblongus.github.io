@@ -6,10 +6,13 @@ import blingus from "../assets/images/blingus.png";
 import { getCollection } from "astro:content";
 
 const allPosts = await getCollection("blog");
-const sortedPosts = allPosts.sort((a, b) => b.data.pubdate - a.data.pubdate);
+const sortedPosts = allPosts.sort(
+    (a, b) => b.data.pubdate.getTime() - a.data.pubdate.getTime(),
+);
 
 const latest = sortedPosts[0];
 const recent = sortedPosts.slice(1, 4);
+console.log("latest slug:", latest.slug + "-title");
 ---
 
 <Layout title="Blog">
@@ -27,17 +30,18 @@ const recent = sortedPosts.slice(1, 4);
                 {
                     latest && (
                         <div class="flex flex-col items-center rounded-xl border-2 border-s-4 border-sky-300 bg-gradient-to-b from-sky-950 to-slate-900 prose-a:no-underline">
-                            <a href={latest.data.url}>
+                            <a href={"/posts/" + latest.slug}>
                                 <img
-                                    src={latest.data.image?.url}
+                                    transition:name={latest.slug + "-image"}
+                                    src={latest.data.image?.src}
                                     alt={latest.data.image?.alt}
                                 />
-                                <h1
-                                    transition:name={
-                                        latest.data.slug + "-title"
-                                    }
-                                >
-                                    {latest.data.title}
+                                <h1>
+                                    <span
+                                        transition:name={latest.slug + "-title"}
+                                    >
+                                        {latest.data.title}
+                                    </span>
                                 </h1>
                             </a>
                         </div>
@@ -56,7 +60,7 @@ const recent = sortedPosts.slice(1, 4);
                                                 <div class="max-h-40 w-full max-w-sm overflow-clip object-contain">
                                                     <img
                                                         src={
-                                                            post.data.image?.url
+                                                            post.data.image?.src
                                                         }
                                                         alt={
                                                             post.data.image?.alt
@@ -64,8 +68,7 @@ const recent = sortedPosts.slice(1, 4);
                                                     />
                                                     {/* <Image */}
                                                     {/*     src={ */}
-                                                    {/*         post.data */}
-                                                    {/*             .image?.url */}
+                                                    {/*         post.data.image.src */}
                                                     {/*     } */}
                                                     {/*     alt="picture" */}
                                                     {/* /> */}
