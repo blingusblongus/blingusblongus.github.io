@@ -1,9 +1,8 @@
 ---
 import Layout from "./Layout.astro";
 import { formatDate } from "../utils/formatDate";
+import { Image } from "astro:assets";
 const { frontmatter, slug } = Astro.props;
-console.log("astro props", Astro.props);
-console.log("fm slug:", frontmatter.slug + "-title");
 ---
 
 <Layout title={frontmatter.title}>
@@ -12,13 +11,23 @@ console.log("fm slug:", frontmatter.slug + "-title");
             class="prose prose-invert lg:prose-lg prose-headings:mt-[3rem] prose-a:text-gray-400 hover:prose-a:text-sky-300"
         >
             <div class="mt-6">
-                <img
-                    transition:name={slug + "-image"}
-                    width="100%"
-                    height="100%"
-                    src={frontmatter.image.src}
-                    alt={frontmatter.image.alt}
-                />
+                {
+                    typeof frontmatter.cover === "object" ? (
+                        <Image
+                            src={frontmatter.cover}
+                            alt={frontmatter.coverAlt}
+                        />
+                    ) : (
+                        <img
+                            transition:name={slug + "-image"}
+                            width="100%"
+                            height="100%"
+                            class="max-h-[20rem] object-cover"
+                            src={frontmatter.cover}
+                            alt={frontmatter.coverAlt}
+                        />
+                    )
+                }
             </div>
             <h1 class="sm:mb-0">
                 <span transition:name={slug + "-title"}

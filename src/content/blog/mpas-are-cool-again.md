@@ -3,9 +3,8 @@ title: MPAs Are Cool Again?
 slug: mpas-are-cool-again
 subtitle: Building a site with Astro 3.0
 pubdate: 2023-09-28
-image:
-    src: "https://docs.astro.build/assets/full-logo-light.png"
-    alt: "The full Astro Logo"
+cover: "https://docs.astro.build/assets/full-logo-light.png"
+coverAlt: "Astro Logo"
 ---
 
 It's easy to get caught up in the hype when it comes to new and unique tools and frameworks in the software dev space. Just recently, we saw this with the release of [Bun](https://bun.sh/) - a javascript runtime that certainly offers some advantages over Node.js, but as people are discovering, may not be the miracle of performance it claims to be.

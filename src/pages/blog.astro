@@ -2,7 +2,6 @@
 import Layout from "../layouts/Layout.astro";
 import { Image } from "astro:assets";
 import "../assets/styles/about.module.css";
-import blingus from "../assets/images/blingus.png";
 import { getCollection } from "astro:content";
 
 const allPosts = await getCollection("blog");
@@ -12,7 +11,7 @@ const sortedPosts = allPosts.sort(
 
 const latest = sortedPosts[0];
 const recent = sortedPosts.slice(1, 4);
-console.log("latest slug:", latest.slug + "-title");
+const others = sortedPosts.slice(4);
 ---
 
 <Layout title="Blog">
@@ -31,11 +30,18 @@ console.log("latest slug:", latest.slug + "-title");
                     latest && (
                         <div class="flex flex-col items-center rounded-xl border-2 border-s-4 border-sky-300 bg-gradient-to-b from-sky-950 to-slate-900 prose-a:no-underline">
                             <a href={"/posts/" + latest.slug}>
-                                <img
-                                    transition:name={latest.slug + "-image"}
-                                    src={latest.data.image?.src}
-                                    alt={latest.data.image?.alt}
-                                />
+                                {typeof latest.data.cover === "object" ? (
+                                    <Image
+                                        src={latest.data.cover}
+                                        alt={latest.data.coverAlt}
+                                    />
+                                ) : (
+                                    <img
+                                        transition:name={latest.slug + "-image"}
+                                        src={latest.data.cover}
+                                        alt={latest.data.coverAlt}
+                                    />
+                                )}
                                 <h1>
                                     <span
                                         transition:name={latest.slug + "-title"}
@@ -56,33 +62,45 @@ console.log("latest slug:", latest.slug + "-title");
                                 {recent.map((post) => {
                                     return (
                                         <div class="not-prose flex flex-col justify-start rounded-xl border-2 border-sky-300 object-cover">
-                                            {post.data?.image ? (
+                                            <a href={"/posts/" + post.slug}>
                                                 <div class="max-h-40 w-full max-w-sm overflow-clip object-contain">
-                                                    <img
-                                                        src={
-                                                            post.data.image?.src
-                                                        }
-                                                        alt={
-                                                            post.data.image?.alt
-                                                        }
-                                                    />
-                                                    {/* <Image */}
-                                                    {/*     src={ */}
-                                                    {/*         post.data.image.src */}
-                                                    {/*     } */}
-                                                    {/*     alt="picture" */}
-                                                    {/* /> */}
+                                                    {typeof post.data.cover ===
+                                                    "object" ? (
+                                                        <Image
+                                                            src={
+                                                                post.data.cover
+                                                            }
+                                                            alt={
+                                                                post.data
+                                                                    .coverAlt
+                                                            }
+                                                        />
+                                                    ) : (
+                                                        <img
+                                                            transition:name={
+                                                                post.slug +
+                                                                "-image"
+                                                            }
+                                                            src={
+                                                                post.data.cover
+                                                            }
+                                                            alt={
+                                                                post.data
+                                                                    .coverAlt
+                                                            }
+                                                        />
+                                                    )}
                                                 </div>
-                                            ) : (
-                                                <img
-                                                    src={blingus.src}
-                                                    alt="blingus"
-                                                    class="h-[6rem] w-[10rem] object-cover"
-                                                />
-                                            )}
-                                            <h3 class="mx-3 mt-0">
-                                                {post.data.title}
-                                            </h3>
+                                                <h3 class="mx-3 mt-0">
+                                                    <span
+                                                        transition:name={
+                                                            post.slug + "-title"
+                                                        }
+                                                    >
+                                                        {post.data.title}
+                                                    </span>
+                                                </h3>
+                                            </a>
                                         </div>
                                     );
                                 })}
@@ -92,7 +110,15 @@ console.log("latest slug:", latest.slug + "-title");
                 }
 
                 <hr />
+
                 <p>
+                    {
+                        others.map((post) => (
+                            <a href={"/posts/" + post.slug}>
+                                {post.data.title}
+                            </a>
+                        ))
+                    }
                     <a href="/posts/mpas-are-cool-again">MPAs are Cool Again</a>
                 </p>
             </div>
