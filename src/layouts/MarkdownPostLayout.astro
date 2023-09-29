@@ -6,30 +6,30 @@ const { frontmatter, slug } = Astro.props;
 ---
 
 <Layout title={frontmatter.title}>
-    <div
-        class="flex max-h-[20rem] w-full justify-center overflow-clip"
-        transition:name={slug + "-image"}
-    >
-        {
-            typeof frontmatter.cover === "object" ? (
-                <Image
-                    src={frontmatter.cover}
-                    alt={frontmatter.coverAlt}
-                    class="max-h-[20rem] w-full object-cover"
-                />
-            ) : (
-                <img
-                    class="max-h-[20rem] w-full object-cover"
-                    src={frontmatter.cover}
-                    alt={frontmatter.coverAlt}
-                />
-            )
-        }
-    </div>
     <div class:list={["mx-auto mb-12 max-w-2xl px-3 sm:w-5/6"]}>
         <article
             class="prose prose-invert lg:prose-lg prose-headings:mt-[3rem] prose-a:text-gray-400 hover:prose-a:text-sky-300"
         >
+            <div
+                class="flex max-h-[20rem] w-full justify-center overflow-clip"
+                transition:name={slug + "-image"}
+            >
+                {
+                    typeof frontmatter.cover === "object" ? (
+                        <Image
+                            src={frontmatter.cover}
+                            alt={frontmatter.coverAlt}
+                            class="max-h-[20rem] w-full object-cover"
+                        />
+                    ) : (
+                        <img
+                            class="max-h-[20rem] w-full object-cover"
+                            src={frontmatter.cover}
+                            alt={frontmatter.coverAlt}
+                        />
+                    )
+                }
+            </div>
             <h1 class="sm:mb-0">
                 <span transition:name={slug + "-title"}
                     >{frontmatter.title}</span

@@ -64,7 +64,7 @@ const others = sortedPosts.slice(4);
                             <div class="flex gap-3">
                                 {recent.map((post) => {
                                     return (
-                                        <div class="not-prose flex flex-col justify-start rounded-xl border-2 border-sky-300 object-cover">
+                                        <div class="not-prose flex flex-col justify-start overflow-hidden rounded-xl border-2 border-sky-300 object-cover">
                                             <a href={"/posts/" + post.slug}>
                                                 <div
                                                     class="max-h-40 w-full max-w-sm overflow-clip object-contain"
