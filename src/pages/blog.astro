@@ -3,6 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import { Image } from "astro:assets";
 import "../assets/styles/about.module.css";
 import { getCollection } from "astro:content";
+import { formatDate } from "../utils/formatDate";
 
 const allPosts = await getCollection("blog");
 const sortedPosts = allPosts.sort(
@@ -10,14 +11,14 @@ const sortedPosts = allPosts.sort(
 );
 
 const latest = sortedPosts[0];
-const recent = sortedPosts.slice(1, 4);
+const recent = sortedPosts.slice(1, 5);
 const others = sortedPosts.slice(4);
 ---
 
 <Layout title="Blog">
     <div class:list={["mx-auto max-w-2xl px-3 sm:w-5/6"]}>
         <article
-            class="prose prose-invert lg:prose-lg prose-headings:mt-[3rem] prose-a:text-gray-400 hover:prose-a:text-sky-300"
+            class="prose prose-invert py-12 lg:prose-lg prose-a:text-gray-400 hover:prose-a:text-sky-300 prose-hr:my-12"
         >
             <h1>
                 <span transition:name="blog-title" class="text-center"
@@ -32,6 +33,7 @@ const others = sortedPosts.slice(4);
                             <a href={"/posts/" + latest.slug}>
                                 {typeof latest.data.cover === "object" ? (
                                     <Image
+                                        transition:name={latest.slug + "-image"}
                                         src={latest.data.cover}
                                         alt={latest.data.coverAlt}
                                     />
@@ -49,21 +51,27 @@ const others = sortedPosts.slice(4);
                                         {latest.data.title}
                                     </span>
                                 </h1>
+                                <p />
                             </a>
                         </div>
                     )
                 }
                 {
-                    recent && (
+                    recent.length > 0 && (
                         <>
                             <hr />
                             <h2>Recent Posts</h2>
-                            <div class="flex">
+                            <div class="flex gap-3">
                                 {recent.map((post) => {
                                     return (
                                         <div class="not-prose flex flex-col justify-start rounded-xl border-2 border-sky-300 object-cover">
                                             <a href={"/posts/" + post.slug}>
-                                                <div class="max-h-40 w-full max-w-sm overflow-clip object-contain">
+                                                <div
+                                                    class="max-h-40 w-full max-w-sm overflow-clip object-contain"
+                                                    transition:name={
+                                                        post.slug + "-image"
+                                                    }
+                                                >
                                                     {typeof post.data.cover ===
                                                     "object" ? (
                                                         <Image
@@ -74,13 +82,10 @@ const others = sortedPosts.slice(4);
                                                                 post.data
                                                                     .coverAlt
                                                             }
+                                                            class="max-h-40 object-cover"
                                                         />
                                                     ) : (
                                                         <img
-                                                            transition:name={
-                                                                post.slug +
-                                                                "-image"
-                                                            }
                                                             src={
                                                                 post.data.cover
                                                             }
@@ -109,18 +114,27 @@ const others = sortedPosts.slice(4);
                     )
                 }
 
-                <hr />
+                {
+                    others.length > 0 && (
+                        <>
+                            <hr />
 
-                <p>
-                    {
-                        others.map((post) => (
-                            <a href={"/posts/" + post.slug}>
-                                {post.data.title}
-                            </a>
-                        ))
-                    }
-                    <a href="/posts/mpas-are-cool-again">MPAs are Cool Again</a>
-                </p>
+                            <h2>Older</h2>
+                            <div class="flex flex-col">
+                                {others.map((post) => (
+                                    <div class="flex gap-6">
+                                        <span>
+                                            {formatDate(post.data.pubdate)}
+                                        </span>
+                                        <a href={"/posts/" + post.slug}>
+                                            {post.data.title}
+                                        </a>
+                                    </div>
+                                ))}
+                            </div>
+                        </>
+                    )
+                }
             </div>
         </article>
     </div>

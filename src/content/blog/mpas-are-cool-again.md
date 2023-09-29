@@ -3,7 +3,7 @@ title: MPAs Are Cool Again?
 slug: mpas-are-cool-again
 subtitle: Building a site with Astro 3.0
 pubdate: 2023-09-28
-cover: "https://docs.astro.build/assets/full-logo-light.png"
+cover: ../../assets/images/astro-full-logo-light.png
 coverAlt: "Astro Logo"
 ---
 
