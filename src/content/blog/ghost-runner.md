@@ -3,6 +3,7 @@ title: Ghost Runner
 pubdate: 2021-05-09
 cover: ../../assets/images/ghost_runner.jpeg
 coverAlt: Picture of Nick
+publish: false
 ---
 
 _Ghost Runner_ has the advantage of short satisfying segments that are easy to play one after the other, but no real hook to make you want to return to the game once you've taken a break. The wallrunning, dashing, and grappling that you're doing for most of the game feels fine, and the challenge seems appropriate, but I've not felt drawn forward through the game — neither the plot nor mechanics propel you through the game levels; rather, it presents segments one after the other and relies on the inertia of just playing the game to do the trick. In a way, it feels like the progress I've made in the game has come about simply because there's rarely a good moment to stop, rather than because I really want to see what's coming next. To be fair, there are frequent checkpoints, and I _could_ theoretically stop whenever I want — but even when all the game is presenting to you is some rote platforming, the fact that it's staring you in the face and you know you could knock out another checkpoint in thirty seconds makes it easy to continue playing, indefinitely, mindlessly.

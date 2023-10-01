@@ -5,13 +5,13 @@ import "../assets/styles/about.module.css";
 import { getCollection } from "astro:content";
 import { formatDate } from "../utils/formatDate";
 
-const allPosts = await getCollection("blog");
+const allPosts = await getCollection("blog", ({ data }) => data.publish);
 const sortedPosts = allPosts.sort(
     (a, b) => b.data.pubdate.getTime() - a.data.pubdate.getTime(),
 );
 
 const latest = sortedPosts[0];
-const recent = sortedPosts.slice(1, 5);
+const recent = sortedPosts.slice(1, 4);
 const others = sortedPosts.slice(4);
 ---
 

@@ -9,6 +9,7 @@ const blogCollection = defineCollection({
             pubdate: z.date(),
             cover: image().or(z.string()),
             coverAlt: z.string(),
+            publish: z.boolean().optional(),
         }),
 });
 
