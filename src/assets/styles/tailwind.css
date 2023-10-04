@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    :root {
+        --color-text-base: #ffffff;
+        --color-text-muted: rgb(209 213 219);
+        --color-text-inverted: #4f46f5;
+        --color-fill: #4338ca;
+        --color-button-accent: #ffffff;
+        --color-button-accent-hover: #eef2ff;
+    }
+}
