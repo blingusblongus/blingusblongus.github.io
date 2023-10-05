@@ -20,5 +20,7 @@
     .theme-neon {
         --color-text-base: 150, 255, 150;
         --color-text-muted: 255, 150, 150;
+        --color-bg-base: 75, 127, 75;
+        --color-bg-muted: 10, 10, 10;
     }
 }
