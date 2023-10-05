@@ -26,6 +26,19 @@ module.exports = {
                     },
                 },
             },
+            backgroundColor: {
+                skin: {
+                    base: withOpacity("--color-bg-base"),
+                    muted: withOpacity("--color-bg-muted"),
+                },
+            },
+
+            gradientColorStops: {
+                skin: {
+                    base: withOpacity("--color-bg-base"),
+                    muted: withOpacity("--color-bg-muted"),
+                },
+            },
         },
     },
     plugins: [require("@tailwindcss/typography")],
