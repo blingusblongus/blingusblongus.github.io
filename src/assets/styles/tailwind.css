@@ -6,10 +6,17 @@
     :root {
         --color-text-base: 255, 255, 255;
         --color-text-muted: 209, 213, 219;
+        --color-text-link: 156, 163, 175;
+        --color-text-link-active: 125, 211, 252;
+        /* --color-text-link-active */
         /* --color-text-muted: 1, 1, 1; */
         /* --color-text-inverted: 79, 70, 245; */
         /* --color-fill: 68, 56, 202; */
         /* --color-button-accent: 255, 255, 255; */
         /* --color-button-accent-hover: 238, 242, 255; */
+    }
+
+    .theme-neon {
+        --color-text-base: 150, 255, 150;
     }
 }

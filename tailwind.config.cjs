@@ -20,7 +20,10 @@ module.exports = {
                 skin: {
                     base: withOpacity("--color-text-base"),
                     muted: withOpacity("--color-text-muted"),
-                    // "button-muted": withOpacity("--color-button-muted"),
+                    link: {
+                        DEFAULT: withOpacity("--color-text-link"),
+                        active: withOpacity("--color-text-link-active"),
+                    },
                 },
             },
         },
