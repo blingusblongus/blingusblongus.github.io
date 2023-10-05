@@ -33,7 +33,11 @@ const {
         <ViewTransitions />
     </head>
     <body
-        class="flex min-h-screen w-full flex-col justify-between text-skin-base"
+        class:list={[
+            "flex min-h-screen w-full flex-col justify-between ",
+            // "theme-neon",
+            "text-skin-base",
+        ]}
     >
         <!-- Background -->
         <div class:list={["fixed -z-50 h-full w-full", background]}></div>
