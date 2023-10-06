@@ -23,4 +23,19 @@
         --color-bg-base: 75, 127, 75;
         --color-bg-muted: 10, 10, 10;
     }
+
+    .theme-pink-blue {
+        --color-text-base: 242, 251, 253;
+        --color-text-muted: 209, 213, 219;
+        --color-bg-base: 122, 0, 104;
+        --color-bg-muted: 100, 29, 18;
+    }
 }
+
+/* colors: { */
+/*  'text': 'rgb(242, 251, 253)', */
+/*  'background': 'rgb(122, 0, 104)', */
+/*  'primary': 'rgb(100, 29, 18)', */
+/*  'secondary': 'rgb(170, 232, 240)', */
+/*  'accent': 'rgb(220, 77, 56)', */
+/* }, */
