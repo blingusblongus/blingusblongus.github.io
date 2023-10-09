@@ -2,14 +2,73 @@
 @tailwind components;
 @tailwind utilities;
 
+/* useful command for adding commas to rgb or hsl values;
+* :s/\(\d\+%*\)\s/\1, /g
+*
+* and for converting from named tailwind shade to css vars;
+* :s/'\(\d\+\)'.*(\(.*\)).*$/--color-text-\1: \2;
+* */
+
 @layer base {
     :root {
-        --color-text-base: 255, 255, 255;
-        --color-text-muted: 209, 213, 219;
-        --color-text-link: 156, 163, 175;
-        --color-text-link-active: 125, 211, 252;
-        --color-bg-base: 30, 41, 59;
-        --color-bg-muted: 10, 10, 10;
+        --neutral-50: 225, 15%, 5%;
+        --neutral-100: 223, 14%, 10%;
+        --neutral-200: 219, 14%, 20%;
+        --neutral-300: 220, 14%, 30%;
+        --neutral-400: 221, 14%, 40%;
+        --neutral-500: 219, 14%, 50%;
+        --neutral-600: 221, 14%, 60%;
+        --neutral-700: 220, 14%, 70%;
+        --neutral-800: 219, 14%, 80%;
+        --neutral-900: 223, 14%, 90%;
+        --neutral-950: 210, 15%, 95%;
+
+        --text-50: 225, 15%, 5%;
+        --text-100: 223, 14%, 10%;
+        --text-200: 219, 14%, 20%;
+        --text-300: 220, 14%, 30%;
+        --text-400: 221, 14%, 40%;
+        --text-500: 219, 14%, 50%;
+        --text-600: 221, 14%, 60%;
+        --text-700: 220, 14%, 70%;
+        --text-800: 219, 14%, 80%;
+        --text-900: 223, 14%, 90%;
+        --text-950: 210, 15%, 95%;
+
+        --background-50: 218, 31%, 5%;
+        --background-100: 215, 33%, 10%;
+        --background-200: 217, 33%, 20%;
+        --background-300: 216, 33%, 30%;
+        --background-400: 217, 33%, 40%;
+        --background-500: 217, 33%, 50%;
+        --background-600: 217, 33%, 60%;
+        --background-700: 216, 33%, 70%;
+        --background-800: 217, 33%, 80%;
+        --background-900: 215, 33%, 90%;
+        --background-950: 218, 31%, 95%;
+
+        --accent-50: 198, 92%, 95%;
+        --accent-100: 200, 96%, 90%;
+        --accent-200: 199, 94%, 80%;
+        --accent-300: 199, 95%, 70%;
+        --accent-400: 199, 95%, 60%;
+        --accent-500: 199, 95%, 50%;
+        --accent-600: 199, 95%, 40%;
+        --accent-700: 199, 95%, 30%;
+        --accent-800: 199, 94%, 20%;
+        --accent-900: 200, 96%, 10%;
+        --accent-950: 200, 92%, 5%;
+
+        --color-bg-base: var(--background-200);
+        --color-bg-muted: var(--background-50);
+        --color-text-base: var(--text-900);
+        --color-text-muted: var(--text-800);
+        --color-text-link: var(--text-700);
+        --color-text-link-active: var(--accent-300);
+    }
+
+    .light {
+        /* --color-bg-base: var(--background-200); */
     }
 
     .theme-neon {
@@ -35,11 +94,23 @@
     }
 
     .theme-charcoal.dark {
-        --color-text-base: 237, 238, 231;
-        --color-text-muted: 168, 155, 164;
+        /* --color-text-base: 237, 238, 231; */
+        --color-text-base: 237, 50%, 50%;
+        --color-text-muted: 168, 155, 50%;
         --color-bg-base: 29, 30, 21;
         --primary: 194, 192, 211;
         --color-bg-muted: 15, 15, 11;
+        --text-50: 75, 15%, 5%;
+        --text-100: 67, 18%, 10%;
+        --text-200: 70, 18%, 20%;
+        --text-300: 69, 18%, 30%;
+        --text-400: 69, 17%, 40%;
+        --text-500: 68, 17%, 50%;
+        --text-600: 69, 17%, 60%;
+        --text-700: 69, 18%, 70%;
+        --text-800: 70, 18%, 80%;
+        --text-900: 67, 18%, 90%;
+        --text-950: 60, 15%, 95%;
     }
 }
 

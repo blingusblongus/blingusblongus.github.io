@@ -1,8 +1,8 @@
 /** @type {import('tailwindcss').Config} */
 
-function withOpacity(variableName) {
+function withOpacity(variableName, colorSystem = "rgba") {
     return ({ opacityValue = 1 }) => {
-        return `rgba(var(${variableName}), ${opacityValue})`;
+        return `${colorSystem}(var(${variableName}), ${opacityValue})`;
     };
 }
 
@@ -18,25 +18,25 @@ module.exports = {
             },
             textColor: {
                 skin: {
-                    base: withOpacity("--color-text-base"),
-                    muted: withOpacity("--color-text-muted"),
+                    base: withOpacity("--color-text-base", "hsla"),
+                    muted: withOpacity("--color-text-muted", "hsla"),
                     link: {
-                        DEFAULT: withOpacity("--color-text-link"),
-                        active: withOpacity("--color-text-link-active"),
+                        DEFAULT: withOpacity("--color-text-link", "hsla"),
+                        active: withOpacity("--color-text-link-active", "hsla"),
                     },
                 },
             },
             backgroundColor: {
                 skin: {
-                    base: withOpacity("--color-bg-base"),
-                    muted: withOpacity("--color-bg-muted"),
+                    base: withOpacity("--color-bg-base", "hsla"),
+                    muted: withOpacity("--color-bg-muted", "hsla"),
                 },
             },
 
             gradientColorStops: {
                 skin: {
-                    base: withOpacity("--color-bg-base"),
-                    muted: withOpacity("--color-bg-muted"),
+                    base: withOpacity("--color-bg-base", "hsla"),
+                    muted: withOpacity("--color-bg-muted", "hsla"),
                 },
             },
         },
