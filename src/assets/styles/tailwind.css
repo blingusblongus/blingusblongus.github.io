@@ -10,11 +10,6 @@
         --color-text-link-active: 125, 211, 252;
         --color-bg-base: 30, 41, 59;
         --color-bg-muted: 10, 10, 10;
-        /* --color-text-muted: 1, 1, 1; */
-        /* --color-text-inverted: 79, 70, 245; */
-        /* --color-fill: 68, 56, 202; */
-        /* --color-button-accent: 255, 255, 255; */
-        /* --color-button-accent-hover: 238, 242, 255; */
     }
 
     .theme-neon {
@@ -41,8 +36,7 @@
 
     .theme-charcoal.dark {
         --color-text-base: 237, 238, 231;
-        /* --color-text-muted: 98, 95, 134; */
-        --color-text-muted: 138, 125, 134;
+        --color-text-muted: 168, 155, 164;
         --color-bg-base: 29, 30, 21;
         --primary: 194, 192, 211;
         --color-bg-muted: 15, 15, 11;
