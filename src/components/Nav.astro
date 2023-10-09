@@ -37,7 +37,9 @@ const alongPath = (path: string) => {
 };
 ---
 
-<nav class="bg-skin-base flex h-12 w-full items-center justify-between px-3">
+<nav
+    class="flex h-12 w-full items-center justify-between bg-skin-base px-3 text-skin-base"
+>
     <div class="flex h-full w-auto">
         <a href="/" class="flex items-center" draggable="false">
             <Image
@@ -56,29 +58,21 @@ const alongPath = (path: string) => {
             navItems.map((item) => {
                 let active = alongPath(item.path);
 
-                if (!active) {
-                    return (
-                        <div class="flex flex-col">
-                            <div>
-                                <a href={item.path} draggable="false">
-                                    {item.label}
-                                </a>
-                            </div>
-                            <div class="h-1 w-full" />
-                        </div>
-                    );
-                }
                 return (
-                    <div class="flex flex-col">
+                    <div class="flex flex-col text-skin-base">
                         <div>
                             <a href={item.path} draggable="false">
                                 {item.label}
                             </a>
                         </div>
-                        <div
-                            class="h-0.5 w-full rounded-s bg-sky-300"
-                            transition:name="nav-active"
-                        />
+                        {active ? (
+                            <div
+                                class="h-0.5 w-full rounded-s bg-sky-300"
+                                transition:name="nav-active"
+                            />
+                        ) : (
+                            <div class="h-1 w-full" />
+                        )}
                     </div>
                 );
             })

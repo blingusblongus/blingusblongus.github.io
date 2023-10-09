@@ -31,9 +31,12 @@ const {
         <title>Nick Allen | {title}</title>
         <script is:inline>
             const setTheme = () => {
-                const rand = Math.random() * 2;
-                if (rand > 1) {
-                    document.documentElement.classList.add("theme-pink-blue");
+                // const rand = Math.random() * 2;
+                if (true) {
+                    document.documentElement.classList.add("theme-charcoal");
+                    document.documentElement.classList.add("dark");
+                    // document.documentElement.classList.add("theme-neon");
+                    // document.documentElement.classList.add("theme-pink-blue");
                 }
             };
             setTheme();
@@ -70,33 +73,14 @@ const {
         <Footer />
 
         <style is:global>
-            :root {
-                --accent: 136, 58, 234;
-                --accent-light: 224, 204, 250;
-                --accent-dark: 49, 10, 101;
-                --accent-gradient: linear-gradient(
-                    45deg,
-                    rgb(var(--accent)),
-                    rgb(var(--accent-light)) 30%,
-                    white 60%
-                );
-            }
             html {
                 font-family: system-ui, sans-serif;
-                background: #13151a;
+                background: var(--color-bg-base);
                 background-size: 224px;
-                /* color: white; */
+                color: var(--color-text-base);
                 font-size: 18px;
             }
 
-            /* body { */
-            /*     font-family: system-ui, sans-serif; */
-            /*     font-size: 18px; */
-            /* } */
-            /* p { */
-            /*     font-family: "Inclusive Sans", system-ui, sans-serif; */
-            /*     font-size: 18px; */
-            /* } */
             code {
                 font-family:
                     Menlo,
