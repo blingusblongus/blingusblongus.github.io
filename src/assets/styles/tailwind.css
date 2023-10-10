@@ -106,6 +106,8 @@
         --accent-950: 240, 15%, 95%;
 
         --color-bg-base: var(--background-200);
+        --color-text-link-active: var(--accent-700);
+        --color-bg-accent: var(--accent-700);
     }
 
     .theme-neon {
