@@ -59,6 +59,18 @@
         --accent-900: 200, 96%, 90%;
         --accent-950: 198, 92%, 95%;
 
+        --primary-50: 233, 31%, 5%;
+        --primary-100: 232, 29%, 10%;
+        --primary-200: 229, 31%, 20%;
+        --primary-300: 230, 31%, 30%;
+        --primary-400: 229, 31%, 40%;
+        --primary-500: 229, 31%, 50%;
+        --primary-600: 229, 31%, 60%;
+        --primary-700: 230, 31%, 70%;
+        --primary-800: 229, 31%, 80%;
+        --primary-900: 232, 29%, 90%;
+        --primary-950: 225, 31%, 95%;
+
         --color-bg-base: var(--background-200);
         --color-bg-muted: var(--background-50);
         --color-text-base: var(--text-900);
@@ -66,6 +78,7 @@
         --color-text-link: var(--text-700);
         --color-text-link-active: var(--accent-800);
         --color-bg-accent: var(--accent-800);
+        --color-bg-primary: var(--primary-300);
     }
 
     .theme-charcoal {
@@ -105,9 +118,23 @@
         --accent-900: 247, 18%, 90%;
         --accent-950: 240, 15%, 95%;
 
-        --color-bg-base: var(--background-200);
+        --primary-50: 252, 20%, 5%;
+        --primary-100: 247, 18%, 10%;
+        --primary-200: 247, 18%, 20%;
+        --primary-300: 244, 18%, 30%;
+        --primary-400: 245, 18%, 40%;
+        --primary-500: 245, 18%, 50%;
+        --primary-600: 245, 18%, 60%;
+        --primary-700: 244, 18%, 70%;
+        --primary-800: 247, 18%, 80%;
+        --primary-900: 247, 18%, 90%;
+        --primary-950: 240, 20%, 95%;
+
+        --color-bg-base: var(--background-100);
+        --color-bg-muted: var(--background-50);
         --color-text-link-active: var(--accent-700);
         --color-bg-accent: var(--accent-700);
+        --color-bg-primary: var(--primary-200);
     }
 
     .theme-neon {
@@ -124,11 +151,3 @@
         --color-bg-muted: 100, 29, 18;
     }
 }
-
-/* colors: { */
-/*  'text': 'rgb(242, 251, 253)', */
-/*  'background': 'rgb(122, 0, 104)', */
-/*  'primary': 'rgb(100, 29, 18)', */
-/*  'secondary': 'rgb(170, 232, 240)', */
-/*  'accent': 'rgb(220, 77, 56)', */
-/* }, */

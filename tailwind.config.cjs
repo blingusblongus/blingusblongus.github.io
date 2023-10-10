@@ -31,6 +31,7 @@ module.exports = {
                     base: withOpacity("--color-bg-base", "hsla"),
                     muted: withOpacity("--color-bg-muted", "hsla"),
                     accent: withOpacity("--color-bg-accent", "hsla"),
+                    primary: withOpacity("--color-bg-primary", "hsla"),
                 },
             },
 
@@ -38,6 +39,7 @@ module.exports = {
                 skin: {
                     base: withOpacity("--color-bg-base", "hsla"),
                     muted: withOpacity("--color-bg-muted", "hsla"),
+                    primary: withOpacity("--color-bg-primary", "hsla"),
                 },
             },
         },
