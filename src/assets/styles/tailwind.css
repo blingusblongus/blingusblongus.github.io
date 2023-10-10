@@ -65,6 +65,7 @@
         --color-text-muted: var(--text-800);
         --color-text-link: var(--text-700);
         --color-text-link-active: var(--accent-300);
+        --color-bg-accent: var(--accent-500);
     }
 
     .light {
@@ -86,6 +87,42 @@
     }
 
     .theme-charcoal {
+        --neutral-50: 75, 15%, 5%;
+        --neutral-100: 67, 18%, 10%;
+        --neutral-200: 70, 18%, 20%;
+        --neutral-300: 69, 18%, 30%;
+        --neutral-400: 69, 17%, 40%;
+        --neutral-500: 68, 17%, 50%;
+        --neutral-600: 69, 17%, 60%;
+        --neutral-700: 69, 18%, 70%;
+        --neutral-800: 70, 18%, 80%;
+        --neutral-900: 67, 18%, 90%;
+        --neutral-950: 60, 15%, 95%;
+
+        --background-50: 60, 20%, 5%;
+        --background-100: 67, 18%, 10%;
+        --background-200: 67, 18%, 20%;
+        --background-300: 67, 18%, 30%;
+        --background-400: 67, 18%, 40%;
+        --background-500: 67, 18%, 50%;
+        --background-600: 67, 18%, 60%;
+        --background-700: 67, 18%, 70%;
+        --background-800: 67, 18%, 80%;
+        --background-900: 67, 18%, 90%;
+        --background-950: 72, 20%, 95%;
+
+        --accent-50: 240, 15%, 5%;
+        --accent-100: 247, 18%, 10%;
+        --accent-200: 247, 18%, 20%;
+        --accent-300: 247, 18%, 30%;
+        --accent-400: 245, 17%, 40%;
+        --accent-500: 244, 17%, 50%;
+        --accent-600: 245, 17%, 60%;
+        --accent-700: 247, 18%, 70%;
+        --accent-800: 247, 18%, 80%;
+        --accent-900: 247, 18%, 90%;
+        --accent-950: 240, 15%, 95%;
+
         --text: 23, 24, 17;
         --background: 233, 234, 225;
         --primary: 46, 44, 63;
