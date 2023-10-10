@@ -47,43 +47,25 @@
         --background-900: 215, 33%, 90%;
         --background-950: 218, 31%, 95%;
 
-        --accent-50: 198, 92%, 95%;
-        --accent-100: 200, 96%, 90%;
-        --accent-200: 199, 94%, 80%;
-        --accent-300: 199, 95%, 70%;
-        --accent-400: 199, 95%, 60%;
+        --accent-50: 200, 92%, 5%;
+        --accent-100: 200, 96%, 10%;
+        --accent-200: 199, 94%, 20%;
+        --accent-300: 199, 95%, 30%;
+        --accent-400: 199, 95%, 40%;
         --accent-500: 199, 95%, 50%;
-        --accent-600: 199, 95%, 40%;
-        --accent-700: 199, 95%, 30%;
-        --accent-800: 199, 94%, 20%;
-        --accent-900: 200, 96%, 10%;
-        --accent-950: 200, 92%, 5%;
+        --accent-600: 199, 95%, 60%;
+        --accent-700: 199, 95%, 70%;
+        --accent-800: 199, 94%, 80%;
+        --accent-900: 200, 96%, 90%;
+        --accent-950: 198, 92%, 95%;
 
         --color-bg-base: var(--background-200);
         --color-bg-muted: var(--background-50);
         --color-text-base: var(--text-900);
         --color-text-muted: var(--text-800);
         --color-text-link: var(--text-700);
-        --color-text-link-active: var(--accent-300);
-        --color-bg-accent: var(--accent-500);
-    }
-
-    .light {
-        /* --color-bg-base: var(--background-200); */
-    }
-
-    .theme-neon {
-        --color-text-base: 240, 230, 180;
-        --color-text-muted: 240, 240, 170;
-        --color-bg-base: 75, 127, 75;
-        --color-bg-muted: 10, 10, 10;
-    }
-
-    .theme-pink-blue {
-        --color-text-base: 242, 251, 253;
-        --color-text-muted: 209, 213, 219;
-        --color-bg-base: 122, 0, 104;
-        --color-bg-muted: 100, 29, 18;
+        --color-text-link-active: var(--accent-800);
+        --color-bg-accent: var(--accent-800);
     }
 
     .theme-charcoal {
@@ -123,31 +105,21 @@
         --accent-900: 247, 18%, 90%;
         --accent-950: 240, 15%, 95%;
 
-        --text: 23, 24, 17;
-        --background: 233, 234, 225;
-        --primary: 46, 44, 63;
-        --secondary: 244, 244, 240;
-        --accent: 124, 121, 160;
+        --color-bg-base: var(--background-200);
     }
 
-    .theme-charcoal.dark {
-        /* --color-text-base: 237, 238, 231; */
-        --color-text-base: 237, 50%, 50%;
-        --color-text-muted: 168, 155, 50%;
-        --color-bg-base: 29, 30, 21;
-        --primary: 194, 192, 211;
-        --color-bg-muted: 15, 15, 11;
-        --text-50: 75, 15%, 5%;
-        --text-100: 67, 18%, 10%;
-        --text-200: 70, 18%, 20%;
-        --text-300: 69, 18%, 30%;
-        --text-400: 69, 17%, 40%;
-        --text-500: 68, 17%, 50%;
-        --text-600: 69, 17%, 60%;
-        --text-700: 69, 18%, 70%;
-        --text-800: 70, 18%, 80%;
-        --text-900: 67, 18%, 90%;
-        --text-950: 60, 15%, 95%;
+    .theme-neon {
+        --color-text-base: 240, 230, 180;
+        --color-text-muted: 240, 240, 170;
+        --color-bg-base: 75, 127, 75;
+        --color-bg-muted: 10, 10, 10;
+    }
+
+    .theme-pink-blue {
+        --color-text-base: 242, 251, 253;
+        --color-text-muted: 209, 213, 219;
+        --color-bg-base: 122, 0, 104;
+        --color-bg-muted: 100, 29, 18;
     }
 }
 

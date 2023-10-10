@@ -52,6 +52,7 @@ const alongPath = (path: string) => {
             />
             <div class="mx-3">Home</div>
         </a>
+        <button id="swapt-theme-btn">Swap Theme</button>
     </div>
     <div class="hidden gap-5 p-3 xs:flex">
         {
@@ -79,3 +80,21 @@ const alongPath = (path: string) => {
         }
     </div>
 </nav>
+
+<script is:inline>
+document
+    .getElementById("swapt-theme-btn")
+    ?.addEventListener("click", () => {
+        const classes = document.documentElement.classList.values();
+
+        for (let c of classes) {
+            if (c === "theme-charcoal") {
+                return document.documentElement.classList.remove(
+                    "theme-charcoal",
+                );
+            }
+        }
+
+        return document.documentElement.classList.add("theme-charcoal");
+    });
+</script>
