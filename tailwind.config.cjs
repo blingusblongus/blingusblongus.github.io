@@ -42,6 +42,9 @@ module.exports = {
                     primary: withOpacity("--color-bg-primary", "hsla"),
                 },
             },
+            borderColor: {
+                link: withOpacity("--color-text-link-active", "hsla"),
+            },
         },
     },
     plugins: [require("@tailwindcss/typography")],

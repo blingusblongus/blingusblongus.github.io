@@ -40,7 +40,7 @@ const alongPath = (path: string) => {
 <nav
     class="flex h-12 w-full items-center justify-between bg-skin-base px-3 text-skin-base"
 >
-    <div class="flex h-full w-auto">
+    <div class="flex h-full w-auto gap-3">
         <a href="/" class="flex items-center" draggable="false">
             <Image
                 src={blingus}
@@ -52,7 +52,10 @@ const alongPath = (path: string) => {
             />
             <div class="mx-3">Home</div>
         </a>
-        <button id="swapt-theme-btn">Swap Theme</button>
+        <button class="theme-button" data-theme="theme-default">Default</button>
+        <button class="theme-button" data-theme="theme-charcoal"
+            >Charcoal</button
+        >
     </div>
     <div class="hidden gap-5 p-3 xs:flex">
         {
@@ -68,7 +71,7 @@ const alongPath = (path: string) => {
                         </div>
                         {active ? (
                             <div
-                                class="bg-skin-accent h-0.5 w-full rounded-s"
+                                class="h-0.5 w-full rounded-s bg-skin-accent"
                                 transition:name="nav-active"
                             />
                         ) : (
@@ -82,19 +85,14 @@ const alongPath = (path: string) => {
 </nav>
 
 <script is:inline>
-document
-    .getElementById("swapt-theme-btn")
-    ?.addEventListener("click", () => {
-        const classes = document.documentElement.classList.values();
+document.querySelectorAll(".theme-button").forEach((el) => {
+    const domClassList = document.documentElement.classList;
+    el.addEventListener("click", (e) => {
+        const value = e.target.getAttribute("data-theme");
 
-        for (let c of classes) {
-            if (c === "theme-charcoal") {
-                return document.documentElement.classList.remove(
-                    "theme-charcoal",
-                );
-            }
-        }
-
-        return document.documentElement.classList.add("theme-charcoal");
+        domClassList.forEach((c) => domClassList.remove(c));
+        domClassList.add(value);
+        localStorage.setItem("theme", value);
     });
+});
 </script>

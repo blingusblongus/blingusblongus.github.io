@@ -31,24 +31,19 @@ const {
         <title>Nick Allen | {title}</title>
         <script is:inline>
             const setTheme = () => {
-                // const rand = Math.random() * 2;
-                if (true) {
-                    document.documentElement.classList.add("theme-charcoal");
-                    // document.documentElement.classList.add("dark");
-                    // document.documentElement.classList.add("light");
-                    // document.documentElement.classList.add("theme-neon");
-                    // document.documentElement.classList.add("theme-pink-blue");
+                const classList = document.documentElement.classList;
+
+                for (let c of classList) {
+                    classList.remove(c);
+                }
+                const key = "theme";
+                if (typeof localStorage !== undefined) {
+                    const storedTheme = localStorage.getItem(key);
+                    classList.add(storedTheme);
                 }
             };
             setTheme();
             document.addEventListener("astro:after-swap", setTheme);
-            // const STORAGE_KEY = "theme";
-            // if (typeof localStorage !== "undefined") {
-            //     const LOCAL_THEME = localStorage.getItem(STORAGE_KEY);
-            //     document.documentElement.classList.add("theme-neon");
-            //     console.log("hello there");
-            // }
-            // document.documentElement.classList.add("theme-neon");
         </script>
 
         <ViewTransitions />
