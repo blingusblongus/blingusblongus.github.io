@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import blingus from "../assets/images/blingus_cropped.png";
+import { getCollection } from "astro:content";
 
 const navItems = [
     {
@@ -35,6 +36,10 @@ const alongPath = (path: string) => {
     if (!p1 || !p2) return false;
     return p1 === p2;
 };
+
+const publishedPosts = await getCollection("blog", ({ data }) => data.publish);
+
+if (publishedPosts.length < 1) console.log("NO POSTS");
 ---
 
 <nav class="flex h-12 w-full items-center justify-between bg-slate-800 px-3">
@@ -54,6 +59,7 @@ const alongPath = (path: string) => {
     <div class="hidden gap-5 p-3 xs:flex">
         {
             navItems.map((item) => {
+                if (publishedPosts.length < 1 && item.path === "/blog") return;
                 let active = alongPath(item.path);
 
                 if (!active) {
